@@ -95,7 +95,7 @@ h1, h2, h3 { margin: 0; font-weight: 300; line-height: 1.2; }
 .hero {
   padding: 130px 0;
   text-align: center;
-  background: linear-gradient(rgba(250, 240, 222, .82), rgba(250, 240, 222, .82)), url("../img/hero.webp") center / cover;
+  background: url("../img/hero.webp") center / cover;
 
   @include lg { padding: 220px 0 230px; }
 
