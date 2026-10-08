@@ -148,7 +148,8 @@ h1, h2, h3 { margin: 0; font-family: $head; font-weight: 500; text-transform: up
 
     color: $white;
 
-    h2 { font-size: clamp(1.4rem, 2vw, 2rem); }
+    h2 { font-size: clamp(1.5rem, 2.2vw, 2.1rem); }
+    p { max-width: 610px; margin: -10px 0 2px; font-size: 1rem; }
   }
 
 }
