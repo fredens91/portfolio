@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contatti · Vetrina</title>
+  <meta name="description" content="Contatta il laboratorio per informazioni, preventivi e ordini su misura.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Vai al contenuto</a>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">Vetrina<span>.</span></a>
+      <nav class="nav" aria-label="Principale">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-list" aria-label="Apri menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav__list" id="nav-list">
+          <li><a class="nav__link" href="index.html">Home</a></li>
+          <li><a class="nav__link" href="chi-siamo.html">Chi siamo</a></li>
+          <li><a class="nav__link" href="prodotti.html">Prodotti</a></li>
+          <li><a class="nav__link" href="contatti.html" aria-current="page">Contatti</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-hero page-hero--sage">
+      <div class="container">
+        <span class="eyebrow">Contatti</span>
+        <h1>Parliamone.</h1>
+        <p class="lead">Scrivici per informazioni sui prodotti, preventivi o progetti su misura. Rispondiamo di solito entro due giorni lavorativi.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact">
+        <div class="contact__info">
+          <h2>Dove trovarci</h2>
+          <dl>
+            <dt>Indirizzo</dt>
+            <dd>Via Esempio 1<br>00000 Città (XX)</dd>
+            <dt>Email</dt>
+            <dd><a href="mailto:info@example.com">info@example.com</a></dd>
+            <dt>Telefono</dt>
+            <dd><a href="tel:+390000000000">+39 000 000 0000</a></dd>
+            <dt>Orari</dt>
+            <dd>Lunedì – venerdì, 9:00 – 18:00<br>Sabato su appuntamento</dd>
+          </dl>
+        </div>
+
+        <form class="form" id="contact-form" novalidate>
+          <div class="form__field">
+            <label for="nome">Nome e cognome *</label>
+            <input id="nome" name="nome" type="text" autocomplete="name" required>
+            <span class="form__error" data-error-for="nome" aria-live="polite"></span>
+          </div>
+          <div class="form__field">
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+            <span class="form__error" data-error-for="email" aria-live="polite"></span>
+          </div>
+          <div class="form__field">
+            <label for="telefono">Telefono</label>
+            <input id="telefono" name="telefono" type="tel" autocomplete="tel">
+            <span class="form__error" data-error-for="telefono" aria-live="polite"></span>
+          </div>
+          <div class="form__field">
+            <label for="oggetto">Oggetto *</label>
+            <select id="oggetto" name="oggetto" required>
+              <option value="">Seleziona…</option>
+              <option>Informazioni sui prodotti</option>
+              <option>Richiesta di preventivo</option>
+              <option>Progetto su misura</option>
+              <option>Altro</option>
+            </select>
+            <span class="form__error" data-error-for="oggetto" aria-live="polite"></span>
+          </div>
+          <div class="form__field form__field--full">
+            <label for="messaggio">Messaggio *</label>
+            <textarea id="messaggio" name="messaggio" minlength="10" required></textarea>
+            <span class="form__error" data-error-for="messaggio" aria-live="polite"></span>
+          </div>
+          <div class="form__field form__field--full">
+            <div class="form__check">
+              <input id="privacy" name="privacy" type="checkbox" required>
+              <label for="privacy">Ho letto l'<a href="privacy-policy.html">informativa sulla privacy</a> e acconsento al trattamento dei miei dati per ricevere una risposta alla mia richiesta. *</label>
+            </div>
+            <span class="form__error" data-error-for="privacy" aria-live="polite"></span>
+          </div>
+          <div class="form__field form__field--full">
+            <button class="btn" type="submit">Invia messaggio</button>
+          </div>
+          <p class="form__note form__field--full">* Campi obbligatori. Questo è un sito dimostrativo: il modulo verifica i dati ma non invia alcun messaggio.</p>
+          <p class="form__status form__field--full" tabindex="-1" role="status" hidden>Grazie! Il tuo messaggio è stato inviato (simulazione).</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <a class="logo" href="index.html">Vetrina<span>.</span></a>
+          <p>Laboratorio di ceramiche fatte a mano: oggetti semplici, pensati per durare e per essere usati ogni giorno.</p>
+        </div>
+        <div>
+          <h2>Navigazione</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="chi-siamo.html">Chi siamo</a></li>
+            <li><a href="prodotti.html">Prodotti</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Contatti</h2>
+          <ul>
+            <li>Via Esempio 1, 00000 Città (XX)</li>
+            <li><a href="mailto:info@example.com">info@example.com</a></li>
+            <li><a href="tel:+390000000000">+39 000 000 0000</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <span>&copy; <span data-year>2026</span> Vetrina · P.IVA 00000000000</span>
+        <span><a href="privacy-policy.html">Privacy Policy</a> · <a href="cookie-policy.html">Cookie Policy</a> · Foto: <a href="https://www.pexels.com" rel="noopener">Pexels</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Informativa cookie" hidden>
+    <p>Questo sito utilizza solo cookie tecnici, necessari al suo funzionamento. Nessun cookie di profilazione. <a href="cookie-policy.html">Cookie Policy</a></p>
+    <button class="btn" type="button">Ho capito</button>
+  </div>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

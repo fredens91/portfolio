@@ -2,8 +2,8 @@
   "name": "portfolio",
   "private": true,
   "scripts": {
-    "build:css": "sass assets/scss/main.scss assets/css/main.css --style=compressed --no-source-map",
-    "watch:css": "sass assets/scss/main.scss assets/css/main.css --watch --no-source-map"
+    "build:css": "sass assets/scss/main.scss:assets/css/main.css vetrina/assets/scss/main.scss:vetrina/assets/css/main.css --style=compressed --no-source-map",
+    "watch:css": "sass assets/scss/main.scss:assets/css/main.css vetrina/assets/scss/main.scss:vetrina/assets/css/main.css --watch --no-source-map"
   },
   "devDependencies": {
     "sass": "^1.105.1"
