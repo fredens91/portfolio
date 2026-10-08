@@ -1,0 +1,324 @@
+$violet: #4a40f5;
+$violet-dark: #1e27a2;
+$teal: #85e6d1;
+$black: #000;
+$white: #fff;
+
+$head: "Josefin Sans", sans-serif;
+$body: "Open Sans", system-ui, sans-serif;
+
+$pad: clamp(20px, 4.7vw, 90px);
+
+@mixin md { @media (min-width: 768px) { @content; } }
+@mixin lg { @media (min-width: 1100px) { @content; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: $white; color: $black; font: 400 16px/1.6 $body; -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3 { margin: 0; font-family: $head; font-weight: 500; text-transform: uppercase; letter-spacing: .02em; line-height: 1.15; }
+
+.btn {
+  display: inline-block;
+  padding: 13px 20px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font: 400 .85rem/1 $body;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: filter .2s, background .2s, color .2s;
+
+  &:hover { filter: brightness(1.1); }
+
+  &--violet { background: $violet; color: $white; box-shadow: 0 8px 20px rgba($violet, .3); }
+  &--teal { background: $teal; color: $black; }
+  &--outline { border-color: $white; color: $white; &:hover { background: $white; color: $black; } }
+}
+
+// "\ " marker before headings
+.slash::before { content: "\\ "; color: $teal; font-weight: 600; }
+.slash--violet::before { color: $violet; }
+
+.kicker {
+  display: block;
+  margin-bottom: 20px;
+  font: 600 .8rem/1 $head;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: $teal;
+
+  &--violet { color: $violet; font-weight: 400; }
+}
+
+// ---------- header ----------
+.header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 10;
+  color: $white;
+
+  &__inner { display: flex; align-items: center; justify-content: space-between; padding: 28px $pad; }
+
+  &__toggle {
+    display: flex; flex-direction: column; gap: 5px; padding: 10px; border: 0; background: none; cursor: pointer;
+    span { width: 24px; height: 2px; background: $white; }
+    @include lg { display: none; }
+  }
+
+  &__nav {
+    display: none;
+    position: absolute;
+    top: 90px; left: 0; right: 0;
+    flex-direction: column;
+    padding: 12px $pad 20px;
+    background: rgba(0, 0, 0, .92);
+
+    &.is-open { display: flex; }
+
+    @include lg { display: flex; position: static; flex-direction: row; gap: 36px; padding: 0; background: none; }
+
+    a { padding: 8px 0; font: 400 .92rem $body; text-transform: uppercase; text-decoration: none; &:hover { color: $teal; } }
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+
+  svg { width: 46px; height: 32px; }
+
+  span { font: 500 1.05rem/.95 $head; text-transform: uppercase; letter-spacing: .02em; }
+}
+
+// ---------- hero ----------
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  min-height: 600px;
+  padding: 140px 20px 80px;
+  text-align: center;
+  color: $white;
+  background: linear-gradient(rgba(10, 30, 110, .55), rgba(10, 30, 110, .55)), url("../img/hero.jpg") center 30% / cover;
+  background-blend-mode: multiply;
+
+  @include lg { min-height: 910px; padding-bottom: 260px; }
+
+  h1 { font-size: clamp(2rem, 4.2vw, 3.6rem); font-weight: 600; text-shadow: 0 2px 20px rgba(0, 0, 0, .3); }
+}
+
+// ---------- insight ----------
+.insight {
+  display: grid;
+  background: $white;
+
+  @include lg { grid-template-columns: 1fr 1fr; min-height: 520px; }
+
+  &__panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 64px $pad;
+    background: linear-gradient(180deg, #4a40f5, $violet-dark);
+    color: $white;
+
+    @include lg {
+      grid-column: 1 / 3;
+      grid-row: 1;
+      width: 60%;
+      padding-right: 22%;
+      clip-path: polygon(0 0, 100% 0, 81% 100%, 0 100%);
+    }
+
+    h2 { margin-bottom: 18px; font-size: clamp(1.5rem, 2.2vw, 2.1rem); }
+    p { max-width: 610px; margin: 0 0 30px; font-size: 1rem; }
+  }
+
+  &__media {
+    display: grid;
+    place-items: center;
+    padding: 48px 20px;
+
+    @include lg { grid-column: 2; grid-row: 1; padding-left: 30%; }
+  }
+}
+
+// CSS phone mock-up
+.phone {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 200px;
+  aspect-ratio: 9 / 18.5;
+  border: 9px solid #161618;
+  border-radius: 34px;
+  background: linear-gradient(160deg, #3f3ae8, #2a26c4);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, .18);
+  transform: rotate(14deg);
+
+  span {
+    font: 400 1.6rem $head;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .85);
+    transform: rotate(-90deg);
+  }
+}
+
+// ---------- band ----------
+.band {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px 60px;
+  padding: 64px $pad;
+  background: $black;
+  color: $white;
+
+  h2 { font-size: clamp(1.4rem, 2vw, 2rem); }
+}
+
+// ---------- clients ----------
+.clients {
+  padding: 80px $pad 70px;
+
+  h2 { margin-bottom: 48px; font-size: clamp(1.4rem, 2vw, 2rem); }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include md { grid-template-columns: repeat(3, 1fr); }
+  }
+}
+
+// fictional client wordmarks
+.wm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  color: #111;
+  text-align: center;
+
+  small { font: 600 .55rem/1.3 $body; letter-spacing: .08em; text-transform: uppercase; }
+
+  &--1 { font: 900 1.7rem/1 Georgia, serif; text-transform: uppercase; letter-spacing: .02em; }
+  &--2 { font: italic 800 1.7rem/1 $body; text-transform: uppercase; letter-spacing: .04em; }
+  &--3 { font: 800 2.4rem/1 $body; letter-spacing: -.04em; }
+  &--4 { flex-direction: row; font: 600 1.8rem/1 $body; b { padding: 0 4px; background: #111; color: #fff; margin-right: 2px; } }
+  &--5 { font: italic 700 1.4rem/1 $head; letter-spacing: .18em; text-transform: uppercase; }
+  &--6 { font: 600 1.7rem/1 $head; letter-spacing: .06em; text-transform: uppercase; &::before { content: "◐ "; } }
+}
+
+// ---------- cases ----------
+.cases {
+  display: grid;
+  gap: 90px;
+  padding: 80px $pad 40px;
+  background: $black;
+  color: $white;
+}
+
+.case {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+
+  @include lg { grid-template-columns: 1fr 1fr; gap: 100px; }
+
+  h3 { margin-bottom: 26px; font-size: 2.1rem; font-weight: 400; }
+
+  p { margin: 0 0 20px; }
+
+  ul { margin: 0 0 32px; padding: 0; list-style: none; }
+
+  li { margin-bottom: 16px; &::before { content: "\\ "; color: $violet; font-weight: 700; } }
+
+  &__img { width: 100%; aspect-ratio: 770 / 380; object-fit: cover; border-top-left-radius: 100px; }
+
+  &--reverse {
+    @include lg {
+      grid-template-columns: .8fr 1fr;
+      .case__text { order: 2; }
+    }
+
+    .kicker { margin-bottom: 20px; }
+  }
+}
+
+.case--reverse .case__img { @include lg { aspect-ratio: 770 / 380; } }
+
+// ---------- process ----------
+.process {
+  padding: 80px $pad 100px;
+  background: $black;
+  color: $white;
+
+  > h2 { margin-bottom: 18px; font-size: clamp(1.4rem, 2vw, 2rem); }
+  > p { margin: 0 0 30px; }
+
+  &__grid {
+    display: grid;
+    gap: 44px;
+    margin-top: 110px;
+
+    @include md { grid-template-columns: repeat(2, 1fr); }
+    @include lg { grid-template-columns: repeat(4, 1fr); }
+  }
+}
+
+.step {
+  border: 2px solid #2a26c4;
+  border-top-left-radius: 50px;
+  overflow: hidden;
+
+  &__head {
+    height: 110px;
+    padding: 28px 30px;
+    background: linear-gradient(180deg, $violet, #2a26c4);
+
+    svg { width: 38px; height: 38px; fill: none; stroke: $white; stroke-width: 1.3; }
+  }
+
+  h3 { margin: 30px 30px 14px; font-size: 1.3rem; font-weight: 400; }
+
+  p { margin: 0 30px 30px; font-size: 1.05rem; }
+}
+
+// ---------- features ----------
+.feature {
+  display: grid;
+  gap: 36px;
+  align-items: center;
+  padding: 80px $pad 40px;
+
+  @include lg { grid-template-columns: 1fr 1fr; gap: 120px; }
+
+  h2 { margin-bottom: 20px; font-size: clamp(1.5rem, 2.2vw, 2.1rem); }
+
+  p { max-width: 800px; margin: 0 0 30px; font-size: 1rem; }
+
+  &__img { width: 100%; aspect-ratio: 820 / 350; object-fit: cover; border-top-left-radius: 50px; }
+
+  &--reverse {
+    padding-bottom: 100px;
+
+    @include lg {
+      .feature__text { order: 2; }
+    }
+
+    .feature__img { border-radius: 0; }
+  }
+}
