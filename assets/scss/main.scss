@@ -33,6 +33,8 @@ body {
 
 img { display: block; max-width: 100%; height: auto; }
 
+[hidden] { display: none !important; }
+
 // underline slides in from the left on hover, out to the right on leave
 a {
   color: inherit;
@@ -240,6 +242,16 @@ a {
   }
 
   &__img { width: 100%; }
+
+  // live site mode: the iframe fills the dialog and scrolls on its own
+  &__frame {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  &.is-site &__scroll { overflow: hidden; }
 }
 
 body.is-locked { overflow: hidden; }
