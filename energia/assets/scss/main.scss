@@ -8,6 +8,7 @@ $head: "Josefin Sans", sans-serif;
 $body: "Open Sans", system-ui, sans-serif;
 
 $pad: clamp(20px, 4.7vw, 90px);
+$split-gap: 3vw;
 
 @mixin md { @media (min-width: 768px) { @content; } }
 @mixin lg { @media (min-width: 1100px) { @content; } }
@@ -34,6 +35,14 @@ h1, h2, h3 { margin: 0; font-family: $head; font-weight: 500; text-transform: up
   &--violet { background: $violet; color: $white; box-shadow: 0 8px 20px rgba($violet, .3); }
   &--teal { background: $teal; color: $black; }
   &--outline { border-color: $white; color: $white; &:hover { background: $white; color: $black; } }
+  &--ghost {
+    border-color: $white;
+    background: transparent;
+    color: $white;
+    transition: background .25s, color .25s, border-color .25s;
+
+    &:hover { border-color: $teal; background: $teal; color: $black; }
+  }
 }
 
 // "\ " marker before headings
@@ -124,16 +133,18 @@ h1, h2, h3 { margin: 0; font-family: $head; font-weight: 500; text-transform: up
     background: linear-gradient(180deg, #4a40f5, $violet-dark);
     color: $white;
 
+    // 50/50 split: the diagonal runs from 56% to 44%, centred on the middle line;
+    // both text columns get the same width (44% - gap - side padding)
     @include lg {
       grid-column: 1 / 3;
       grid-row: 1;
-      width: 60%;
-      padding-right: 22%;
-      clip-path: polygon(0 0, 100% 0, 81% 100%, 0 100%);
+      width: 56%;
+      padding-right: calc(12% + #{$split-gap});
+      clip-path: polygon(0 0, 100% 0, 78.57% 100%, 0 100%);
     }
 
     h2 { margin-bottom: 18px; font-size: clamp(1.5rem, 2.2vw, 2.1rem); }
-    p { max-width: 610px; margin: 0 0 30px; font-size: 1rem; }
+    p { margin: 0 0 30px; font-size: 1rem; }
   }
 
   &__cta {
@@ -144,12 +155,12 @@ h1, h2, h3 { margin: 0; font-family: $head; font-weight: 500; text-transform: up
     gap: 28px;
     padding: 56px $pad;
 
-    @include lg { grid-column: 2; grid-row: 1; padding: 0 $pad 0 22%; }
+    @include lg { grid-column: 1 / 3; grid-row: 1; padding: 0 $pad 0 calc(56% + #{$split-gap}); }
 
     color: $white;
 
     h2 { font-size: clamp(1.5rem, 2.2vw, 2.1rem); }
-    p { max-width: 610px; margin: -10px 0 2px; font-size: 1rem; }
+    p { margin: -10px 0 2px; font-size: 1rem; }
   }
 
 }
@@ -293,6 +304,8 @@ h1, h2, h3 { margin: 0; font-family: $head; font-weight: 500; text-transform: up
 
 // demo: CTAs are not links
 span.btn { pointer-events: none; cursor: default; }
+// hover effect kept on this one (still not a link)
+span.btn--ghost { pointer-events: auto; }
 
 // ---------- footer ----------
 .footer {
