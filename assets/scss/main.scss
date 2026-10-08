@@ -134,7 +134,7 @@ a {
       height: 100%;
       object-fit: cover;
       object-position: top center;
-      transition: object-position 4s ease-in-out;
+      transition: object-position var(--scroll-time, 6s) ease-in-out;
     }
 
     // slow scroll through the page on hover

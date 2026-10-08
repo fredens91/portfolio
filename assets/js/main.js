@@ -2,6 +2,12 @@
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
+  // hover scroll duration proportional to page length
+  document.querySelectorAll('.project__preview img').forEach((thumb) => {
+    const ratio = thumb.getAttribute('height') / thumb.getAttribute('width');
+    if (ratio) thumb.style.setProperty('--scroll-time', `${Math.max(3, ratio * 2.5).toFixed(1)}s`);
+  });
+
   const box = document.getElementById('lightbox');
   if (!box || typeof box.showModal !== 'function') return;
 
