@@ -111,7 +111,7 @@ h1, h2, h3 { margin: 0; font-family: $head; font-weight: 500; text-transform: up
 // ---------- insight ----------
 .insight {
   display: grid;
-  background: $white;
+  background: $black;
 
   @include lg { grid-template-columns: 1fr 1fr; min-height: 520px; }
 
@@ -145,6 +145,8 @@ h1, h2, h3 { margin: 0; font-family: $head; font-weight: 500; text-transform: up
     padding: 56px $pad;
 
     @include lg { grid-column: 2; grid-row: 1; padding: 0 $pad 0 22%; }
+
+    color: $white;
 
     h2 { font-size: clamp(1.4rem, 2vw, 2rem); }
   }
