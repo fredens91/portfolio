@@ -21,26 +21,57 @@ a { color: inherit; }
 h1, h2, h3 { margin: 0; font-family: $head; font-weight: 500; text-transform: uppercase; letter-spacing: .02em; line-height: 1.15; }
 
 .btn {
-  display: inline-block;
-  padding: 13px 20px;
+  position: relative;
+  z-index: 0;
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 13px 24px;
   border: 1px solid transparent;
-  border-radius: 5px;
+  border-radius: 8px;
   font: 400 .85rem/1 $body;
   text-transform: uppercase;
   text-decoration: none;
-  transition: filter .2s, background .2s, color .2s;
+  transition: transform .3s ease, color .3s ease, background-color .3s ease, border-color .3s ease;
 
-  &:hover { filter: brightness(1.1); }
+  // gradient layer that fades in on hover (filled buttons)
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(90deg, $teal, #5420ff);
+    opacity: 0;
+    transition: opacity .5s;
+  }
 
-  &--violet { background: $violet; color: $white; box-shadow: 0 8px 20px rgba($violet, .3); }
-  &--teal { background: $teal; color: $black; }
-  &--outline { border-color: $white; color: $white; &:hover { background: $white; color: $black; } }
+  // arrow that slides in on hover
+  &::after {
+    content: "92";
+    display: inline-block;
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: width .3s ease, opacity .3s ease, transform .3s ease;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+
+    &::after { width: 20px; opacity: 1; transform: translateX(10px); }
+  }
+
+  &--violet { background: $violet; color: $white; box-shadow: 0 8px 20px rgba($violet, .3); &:hover { color: $white; &::before { opacity: 1; } } }
+  &--teal { background: $teal; color: $black; &:hover { color: $white; &::before { opacity: 1; } } }
+
+  // outlined buttons fill with teal instead
+  &--outline,
   &--ghost {
     border-color: $white;
     background: transparent;
     color: $white;
-    transition: background .25s, color .25s, border-color .25s;
 
+    &::before { display: none; }
     &:hover { border-color: $teal; background: $teal; color: $black; }
   }
 }
@@ -301,9 +332,8 @@ h1, h2, h3 { margin: 0; font-family: $head; font-weight: 500; text-transform: up
 }
 
 // demo: CTAs are not links
-span.btn { pointer-events: none; cursor: default; }
-// hover effect kept on this one (still not a link)
-span.btn--ghost { pointer-events: auto; }
+// demo: CTAs are not links, but keep the hover effect
+span.btn { cursor: default; }
 
 // ---------- footer ----------
 .footer {

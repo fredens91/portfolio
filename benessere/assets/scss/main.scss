@@ -1,223 +1,697 @@
-$orange: #ed613b;
-$yellow: #efb54a;
-$ink: #2a2622;
-$brown: #8b6a48;
-$beige: #f9eedc;
-$card: #ebebeb;
-$bg: #fdfdfd;
+// Centro Alba demo: layout from design-html
 
-$font: "Nunito", system-ui, sans-serif;
+:root {
+  --amber: #ed613b;
+  --amber-hover: #d94f2b;
+  --gold: #f2b749;
+  --brown: #7a6240;
+  --night: #2c1f0e;
+  --cream: #f9eedc;
+  --grey: #ebebeb;
+  --black: #0f0f0f;
+  --white: #fdfdfd;
 
-@mixin md { @media (min-width: 768px) { @content; } }
-@mixin lg { @media (min-width: 1024px) { @content; } }
-
-*, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; background: $bg; color: $ink; font: 400 17px/1.65 $font; -webkit-font-smoothing: antialiased; }
-img { display: block; max-width: 100%; height: auto; }
-a { color: inherit; }
-h1, h2, h3 { margin: 0; font-weight: 300; line-height: 1.2; }
-
-.container { width: 100%; max-width: 1360px; margin: 0 auto; padding: 0 20px; }
-
-.title {
-  margin-bottom: 26px;
-  font-size: clamp(1.7rem, 2.3vw, 2.1rem);
-
-  &::after { content: ""; display: block; width: 46px; height: 2px; margin-top: 14px; background: $yellow; }
+  --font: "Raleway", -apple-system, BlinkMacSystemFont, sans-serif;
+  --radius: 12px;
+  --shadow: 0 20px 50px rgba(15, 15, 15, 0.12);
+  --transition: all 0.3s ease;
+  --max-width: 1180px;
 }
 
-.btn {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  font-weight: 300;
+  color: var(--night);
+  background-color: var(--white);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+body.is-loading * {
+  transition: none !important;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 300;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 52px;
+}
+
+h2 {
+  font-size: 38px;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+p {
+  font-size: 17px;
+}
+
+.kicker {
   display: inline-block;
-  padding: 12px 40px;
-  border-radius: 999px;
-  background: $orange;
-  color: #fff;
-  font: 800 .95rem/1.2 $font;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  text-decoration: none;
-  box-shadow: 4px 6px 12px rgba(0, 0, 0, .18);
-  transition: transform .2s, box-shadow .2s;
-
-  &:hover { transform: translateY(-2px); box-shadow: 4px 10px 18px rgba(0, 0, 0, .2); }
+  color: var(--amber);
+  margin-bottom: 14px;
 }
 
-// ---------- header ----------
-.header {
-  position: sticky;
+.kicker.light {
+  color: var(--gold);
+}
+
+/* Buttons ---------------------------------------------------------------- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  background-color: var(--amber);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: var(--transition);
+  border: 2px solid var(--amber);
+}
+
+.button:hover {
+  background-color: var(--amber-hover);
+  border-color: var(--amber-hover);
+  transform: translateY(-2px);
+}
+
+.button.big {
+  padding: 18px 38px;
+  font-size: 15px;
+}
+
+.button.alt {
+  background-color: transparent;
+  border-color: var(--white);
+}
+
+.button.alt:hover {
+  background-color: var(--white);
+  color: var(--night);
+}
+
+.button.small {
+  padding: 10px 22px;
+  font-size: 12px;
+}
+
+/* Navbar ------------------------------------------------------------------ */
+
+#navbar {
+  position: fixed;
   top: 0;
-  z-index: 10;
-  background: #fff;
-
-  &__inner { display: flex; align-items: center; justify-content: space-between; height: 96px; }
-
-  &__toggle {
-    display: flex; flex-direction: column; gap: 5px; padding: 10px; border: 0; background: none; cursor: pointer;
-    span { width: 24px; height: 2px; background: $ink; }
-    @include lg { display: none; }
-  }
-
-  &__nav {
-    display: none;
-    position: absolute;
-    top: 96px; left: 0; right: 0;
-    flex-direction: column;
-    padding: 10px 20px 20px;
-    background: #fff;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .06);
-
-    &.is-open { display: flex; }
-
-    @include lg { display: flex; position: static; flex-direction: row; align-items: center; gap: 30px; padding: 0; box-shadow: none; }
-
-    a { padding: 8px 0; font-size: .9rem; text-decoration: none; &:hover { color: $orange; } }
-    small { font-size: .6rem; }
-  }
-
-  &__search {
-    display: inline-flex; align-items: center; gap: 8px; margin-left: 8px;
-    svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.6; }
-  }
-}
-
-.logo {
-  display: inline-block;
-  padding: 0 .15em .08em .05em; // script glyphs overhang: keep them inside the clipped gradient
-  font: 600 2.6rem/1 "Caveat", cursive;
-  text-decoration: none;
-  background: linear-gradient(100deg, $orange, $yellow);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-// ---------- hero ----------
-.hero {
-  padding: 130px 0;
-  text-align: center;
-  background: url("../img/hero.webp") center / cover;
-
-  @include lg { padding: 220px 0 230px; }
-
-  h1 { margin-bottom: 26px; font-size: clamp(2rem, 3.4vw, 3.1rem); color: #3d3226; }
-
-  p { margin: 0; font-size: clamp(1.1rem, 1.5vw, 1.45rem); color: $brown; }
-}
-
-// ---------- sections ----------
-.section {
-  padding: 80px 0;
-
-  &--tight { padding-top: 0; }
-  &--beige { background: $beige; }
-}
-
-.split {
-  display: grid;
-  gap: 40px;
-  align-items: center;
-
-  @include lg { grid-template-columns: 1fr 1fr; gap: 60px; }
-
-  p { margin: 0 0 18px; font-size: 1rem; }
-
-  .btn { margin-top: 36px; }
-
-  &__img { width: 100%; aspect-ratio: 640 / 330; object-fit: cover; border-radius: 14px; box-shadow: 6px 8px 14px rgba(0, 0, 0, .2); }
-
-  &--reverse .split__img { aspect-ratio: 620 / 330; }
-}
-
-.lead { margin: 0 0 56px; font-size: 1rem; }
-
-// ---------- services ----------
-.services {
-  display: grid;
-  gap: 40px;
-  margin-top: 40px;
-
-  @include md { grid-template-columns: repeat(3, 1fr); gap: 46px; }
-}
-
-.service {
+  left: 0;
+  right: 0;
+  z-index: 1000;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  padding: 40px 40px 46px;
-  border-radius: 14px;
-  background: $card;
-  box-shadow: 6px 8px 14px rgba(0, 0, 0, .18);
-  text-align: center;
-
-  svg { width: 84px; height: 84px; margin-bottom: 18px; fill: none; stroke: $yellow; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; color: $yellow; }
-
-  h3 { margin-bottom: 26px; font-size: 1.8rem; }
-
-  p { flex: 1; margin: 0 0 40px; font-size: .95rem; text-align: left; }
+  justify-content: space-between;
+  padding: 22px 6%;
+  transition: var(--transition);
 }
 
-// ---------- ages ----------
-.ages {
-  display: grid;
-  gap: 40px;
-
-  @include md { grid-template-columns: repeat(3, 1fr); gap: 46px; }
+#navbar.is-solid {
+  background-color: rgba(253, 253, 253, 0.96);
+  backdrop-filter: blur(6px);
+  padding: 14px 6%;
+  box-shadow: 0 2px 20px rgba(15, 15, 15, 0.06);
 }
 
-.age {
+#navbar .logo {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 1px;
+  transition: var(--transition);
+}
+
+#navbar.is-solid .logo {
+  color: var(--amber);
+}
+
+#navbar nav {
   display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  border-radius: 14px;
-  background: $card;
-  box-shadow: 6px 8px 14px rgba(0, 0, 0, .18);
-
-  img { width: 100%; aspect-ratio: 413 / 180; object-fit: cover; }
-
-  &__body { flex: 1; padding: 30px 30px 10px; }
-
-  h3 { margin-bottom: 14px; font-size: 1.8rem; }
-
-  p { margin: 0; color: $brown; font-size: .95rem; }
-
-  &__link { padding: 16px 30px 22px; color: $orange; font-size: .75rem; font-weight: 800; text-decoration: none; transition: background .2s, color .2s; }
-
+  align-items: center;
+  gap: 34px;
 }
 
-// ---------- footer ----------
-.footer {
+#navbar nav a:not(.button) {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.3px;
   position: relative;
-  padding: 80px 0 40px;
-  background: $beige;
-  font-size: .9rem;
-
-  &__grid { display: grid; gap: 40px; @include md { grid-template-columns: repeat(3, 1fr); } }
-
-  .logo { display: inline-block; margin-bottom: 30px; font-size: 4.2rem; }
-
-  p { margin: 0 0 10px; }
-
-  .title { font-size: 1.35rem; font-weight: 400; margin-bottom: 30px; }
-
-  &__list { margin: 0; padding: 0; list-style: none; li { margin-bottom: 18px; } span { display: inline-block; width: 20px; } }
-
-  &__note { margin-top: 60px; font-size: .82rem; }
+  transition: var(--transition);
 }
 
-.whatsapp {
+#navbar.is-solid nav a:not(.button) {
+  color: var(--night);
+}
+
+#navbar nav a:not(.button)::after {
+  content: "";
   position: absolute;
-  right: 30px;
-  bottom: 30px;
-  display: grid;
-  place-items: center;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  background: #25d366;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, .2);
-
-  svg { width: 30px; height: 30px; }
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background-color: var(--amber);
+  transition: var(--transition);
 }
 
-// demo: CTAs are not links
-span.btn { pointer-events: none; cursor: default; }
+#navbar nav a:not(.button):hover::after {
+  width: 100%;
+}
+
+#nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+#nav-toggle span {
+  width: 26px;
+  height: 2px;
+  background-color: var(--white);
+  transition: var(--transition);
+}
+
+#navbar.is-solid #nav-toggle span {
+  background-color: var(--night);
+}
+
+/* Hero ---------------------------------------------------------------- */
+
+.block-hero {
+  position: relative;
+  min-height: min(100vh, 1000px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 0 6%;
+}
+
+.block-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(44, 31, 14, 0.55) 0%, rgba(44, 31, 14, 0.75) 100%);
+}
+
+.block-hero .content {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  color: var(--white);
+}
+
+.block-hero .eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 22px;
+}
+
+.block-hero h1 {
+  margin-bottom: 20px;
+}
+
+.block-hero p {
+  font-size: 19px;
+  font-weight: 300;
+  margin-bottom: 40px;
+  opacity: 0.92;
+}
+
+.block-hero .actions {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.scroll-cue {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: var(--white);
+  font-size: 20px;
+  opacity: 0.8;
+  animation: bounce 2.2s infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+
+  50% {
+    transform: translate(-50%, 10px);
+  }
+}
+
+/* Generic blocks ---------------------------------------------------------- */
+
+.block,
+.block-dark {
+  padding: 120px 6%;
+}
+
+.block-alt {
+  background-color: var(--cream);
+}
+
+.block-dark {
+  background-color: var(--night);
+  color: var(--white);
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.section-head {
+  max-width: 680px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.section-head p {
+  margin-top: 18px;
+  color: var(--brown);
+}
+
+.block-dark .section-head p {
+  color: rgba(253, 253, 253, 0.75);
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.two-col.reverse .col.image {
+  order: 2;
+}
+
+.two-col .text p {
+  color: var(--brown);
+  margin-bottom: 18px;
+}
+
+.two-col .image img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Grid tiles (servizi) ----------------------------------------------------- */
+
+.grid {
+  display: grid;
+  gap: 30px;
+}
+
+.grid.three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.tile {
+  position: relative;
+  min-height: 420px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: flex-end;
+}
+
+.tile-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(44, 31, 14, 0.1) 0%, rgba(44, 31, 14, 0.88) 100%);
+  transition: var(--transition);
+}
+
+.tile:hover .tile-overlay {
+  background: linear-gradient(180deg, rgba(237, 97, 59, 0.3) 0%, rgba(237, 97, 59, 0.92) 100%);
+}
+
+.tile-content {
+  position: relative;
+  z-index: 2;
+  padding: 34px;
+  color: var(--white);
+}
+
+.tile-content i {
+  font-size: 28px;
+  color: var(--gold);
+  margin-bottom: 14px;
+  display: block;
+}
+
+.tile-content h3 {
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.tile-content p {
+  font-size: 15px;
+  opacity: 0.9;
+  margin-bottom: 18px;
+}
+
+.tile-content .link {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Age cards (a chi ci rivolgiamo) ----------------------------------------- */
+
+.cards-age {
+  margin-top: 10px;
+}
+
+.age-card {
+  position: relative;
+  min-height: 320px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.age-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(44, 31, 14, 0.45);
+  transition: var(--transition);
+}
+
+.age-card:hover .age-overlay {
+  background-color: rgba(237, 97, 59, 0.75);
+}
+
+.age-title {
+  position: relative;
+  z-index: 2;
+  color: var(--white);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Feature block (missione) ------------------------------------------------- */
+
+.block-feature {
+  position: relative;
+  padding: 160px 6%;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.block-feature .overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(44, 31, 14, 0.72);
+}
+
+.block-feature .content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--white);
+}
+
+.block-feature blockquote {
+  font-size: 34px;
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.block-feature p {
+  opacity: 0.85;
+  margin-bottom: 36px;
+}
+
+/* Contatti ------------------------------------------------------------- */
+
+.contact-grid {
+  margin-bottom: 50px;
+}
+
+.contact-card {
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  background-color: rgba(253, 253, 253, 0.06);
+  border: 1px solid rgba(253, 253, 253, 0.1);
+  transition: var(--transition);
+}
+
+.contact-card:hover {
+  background-color: rgba(253, 253, 253, 0.1);
+  transform: translateY(-4px);
+}
+
+.contact-card i {
+  font-size: 26px;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.contact-card h3 {
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.contact-card span {
+  color: rgba(253, 253, 253, 0.8);
+  font-size: 15px;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  list-style: none;
+}
+
+.socials span {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(253, 253, 253, 0.08);
+  color: var(--white);
+  transition: var(--transition);
+}
+
+.socials span:hover {
+  background-color: var(--amber);
+  transform: translateY(-3px);
+}
+
+/* Footer -------------------------------------------------------------- */
+
+footer {
+  padding: 50px 6%;
+  background-color: var(--black);
+  color: rgba(253, 253, 253, 0.6);
+  text-align: center;
+}
+
+footer .logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+footer p {
+  font-size: 13px;
+}
+
+footer .disclaimer {
+  margin-top: 10px;
+  opacity: 0.6;
+  font-size: 12px;
+}
+
+/* Scroll reveal ------------------------------------------------------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive ------------------------------------------------------------ */
+
+@media (max-width: 900px) {
+  h1 {
+    font-size: 38px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  .block,
+  .block-dark {
+    padding: 90px 6%;
+  }
+
+  .block-feature {
+    padding: 110px 6%;
+    background-attachment: scroll;
+  }
+
+  .two-col,
+  .grid.three {
+    grid-template-columns: 1fr;
+  }
+
+  .two-col.reverse .col.image {
+    order: 0;
+  }
+
+  .two-col .image img {
+    height: 280px;
+  }
+
+  #navbar nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 78%;
+    max-width: 320px;
+    height: 100vh;
+    background-color: var(--white);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 26px;
+    padding: 40px;
+    box-shadow: -10px 0 40px rgba(15, 15, 15, 0.15);
+    transition: right 0.35s ease;
+  }
+
+  #navbar nav.is-open {
+    right: 0;
+  }
+
+  #navbar nav a:not(.button) {
+    color: var(--night) !important;
+    font-size: 17px;
+  }
+
+  #nav-toggle {
+    display: flex;
+  }
+
+  .block-feature blockquote {
+    font-size: 26px;
+  }
+}
+
+/* Images ------------------------------------------------------------------ */
+
+.block-hero { background-image: url("../img/hero.webp"); }
+.tile--psicologico { background-image: url("../img/spazio-psicologico.webp"); }
+.tile--pedagogico { background-image: url("../img/spazio-pedagogico.webp"); }
+.tile--benessere { background-image: url("../img/spazio-benessere.jpg"); }
+.age-card--infanzia { background-image: url("../img/infanzia.webp"); }
+.age-card--adolescenti { background-image: url("../img/adolescenti.webp"); }
+.age-card--adulti { background-image: url("../img/adulti.webp"); }
+.block-feature { background-image: url("../img/missione.webp"); }
+
+/* Demo: CTAs are not links -------------------------------------------------- */
+
+span.button { pointer-events: none; cursor: default; }
+
+/* Logo is plain text: keep it on one line */
+#navbar .logo, footer .logo { white-space: nowrap; }
