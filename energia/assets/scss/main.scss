@@ -327,7 +327,7 @@ h1, h2, h3 { margin: 0; font-family: $head; font-weight: 500; text-transform: up
       .feature__text { order: 2; }
     }
 
-    .feature__img { border-radius: 0; }
+    .feature__img { border-radius: 0; object-position: center 15%; }
   }
 }
 
