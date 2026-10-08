@@ -435,7 +435,7 @@ a { color: inherit; text-underline-offset: 3px; }
 .cta {
   padding: 56px 28px;
   border-radius: $radius;
-  background: linear-gradient(120deg, $powder 0%, $sage 50%, $peach 100%);
+  background: $peach;
   text-align: center;
 
   @include lg { padding: 80px 48px; }
