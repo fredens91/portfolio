@@ -81,6 +81,8 @@ h1, h2, h3 { margin: 0; font-weight: 300; line-height: 1.2; }
 }
 
 .logo {
+  display: inline-block;
+  padding: 0 .15em .08em .05em; // script glyphs overhang: keep them inside the clipped gradient
   font: 600 2.6rem/1 "Caveat", cursive;
   text-decoration: none;
   background: linear-gradient(100deg, $orange, $yellow);
@@ -180,8 +182,6 @@ h1, h2, h3 { margin: 0; font-weight: 300; line-height: 1.2; }
 
   &__link { padding: 16px 30px 22px; color: $orange; font-size: .75rem; font-weight: 800; text-decoration: none; transition: background .2s, color .2s; }
 
-  &:hover &__link,
-  &--active &__link { background: $orange; color: #fff; text-decoration: underline; }
 }
 
 // ---------- footer ----------
@@ -218,3 +218,6 @@ h1, h2, h3 { margin: 0; font-weight: 300; line-height: 1.2; }
 
   svg { width: 30px; height: 30px; }
 }
+
+// demo: CTAs are not links
+span.btn { pointer-events: none; cursor: default; }

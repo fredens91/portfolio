@@ -228,7 +228,7 @@ h1, h2, h3 { margin: 0; font-weight: 600; line-height: 1.15; letter-spacing: -0.
 
   p { margin: 0 0 12px; font-size: .85rem; line-height: 1.55; }
 
-  a { color: $muted; font-size: .78rem; text-decoration: none; }
+  &__more { color: $muted; font-size: .78rem; }
 }
 
 // ---------- footer ----------
@@ -251,3 +251,6 @@ h1, h2, h3 { margin: 0; font-weight: 600; line-height: 1.15; letter-spacing: -0.
 
   &__social { display: flex; gap: 14px; margin-top: 14px; a { font: 700 1.1rem $caps; text-decoration: none; } }
 }
+
+// demo: CTAs are not links
+span.btn { pointer-events: none; cursor: default; }
