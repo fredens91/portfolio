@@ -207,7 +207,7 @@ a {
 
 // ---------- Lightbox ----------
 .lightbox {
-  width: min(1100px, 100vw - 32px);
+  width: 80vw;
   max-width: none;
   height: calc(100vh - 32px);
   max-height: none;
@@ -252,6 +252,14 @@ a {
   }
 
   &.is-site &__scroll { overflow: hidden; }
+
+  // below tablet: full screen
+  @media (max-width: #{$bp-md - 1px}) {
+    width: 100vw;
+    height: 100dvh;
+    margin: 0;
+    border: 0;
+  }
 }
 
 body.is-locked { overflow: hidden; }
