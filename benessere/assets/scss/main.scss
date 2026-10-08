@@ -722,3 +722,6 @@ span.button { pointer-events: none; cursor: default; }
 .block-contacts .contact-card span { color: rgba(253, 253, 253, 0.9); }
 .block-contacts .socials span { background-color: var(--night); }
 .block-contacts .socials span:hover { background-color: var(--amber); }
+
+// demo: header menu items are inert (hover kept)
+nav a:not([href]) { cursor: default; }

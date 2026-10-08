@@ -308,3 +308,6 @@ h1, h2, h3 { margin: 0; font-weight: 300; line-height: 1.4; }
 
 // demo: CTAs are not links
 span.btn { pointer-events: none; cursor: default; }
+
+// demo: header menu items are inert (hover kept)
+nav a:not([href]) { cursor: default; }

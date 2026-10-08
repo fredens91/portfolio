@@ -391,3 +391,6 @@ span.btn { cursor: default; }
   }
 
 }
+
+// demo: header menu items are inert (hover kept)
+nav a:not([href]) { cursor: default; }
