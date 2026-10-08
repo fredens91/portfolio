@@ -709,3 +709,11 @@ span.button { pointer-events: none; cursor: default; }
 
 /* Logo is plain text: keep it on one line */
 #navbar .logo, footer .logo { white-space: nowrap; }
+
+/* Contacts on white: brown heading, solid brown cards and socials */
+.block-contacts .section-head h2 { color: var(--night); }
+.block-contacts .contact-card { background-color: var(--night); border-color: var(--night); color: var(--white); }
+.block-contacts .contact-card:hover { background-color: #3d2c16; }
+.block-contacts .contact-card span { color: rgba(253, 253, 253, 0.8); }
+.block-contacts .socials span { background-color: var(--night); }
+.block-contacts .socials span:hover { background-color: var(--amber); }
