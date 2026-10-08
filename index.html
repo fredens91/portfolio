@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio</title>
+  <meta name="description" content="Portfolio di web design: selezione di siti e landing page.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <h1 class="site-header__title">Portfolio<span class="cursor" aria-hidden="true">_</span></h1>
+      <a class="site-header__mail" href="mailto:fo.wpress@gmail.com">fo.wpress@gmail.com</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <p class="intro">
+      Una selezione di progetti di web design.<br>
+      Clicca su un'anteprima per vedere la pagina completa.
+    </p>
+
+    <ol class="projects">
+      <li class="project">
+        <button class="project__preview" type="button" data-full="assets/img/psicologia.jpg" aria-label="Apri anteprima: Centro di psicologia e benessere">
+          <img src="assets/img/psicologia.jpg" alt="Anteprima homepage di un centro di psicologia e benessere" loading="lazy" width="1440" height="1746">
+        </button>
+        <div class="project__info">
+          <span class="project__index">01</span>
+          <h2 class="project__title">Centro di psicologia e benessere</h2>
+          <p class="project__desc">Sito per un centro multidisciplinare di supporto psicologico, pedagogico e di benessere. Palette calda e accogliente, illustrazioni ad acquerello e card dei servizi pensate per ogni fascia d'età.</p>
+          <ul class="project__tags">
+            <li>salute</li><li>servizi</li><li>multi-pagina</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="project">
+        <button class="project__preview" type="button" data-full="assets/img/assicurazioni.jpg" aria-label="Apri anteprima: Consulenza assicurativa">
+          <img src="assets/img/assicurazioni.jpg" alt="Anteprima homepage di una consulenza assicurativa" loading="lazy" width="1440" height="1710">
+        </button>
+        <div class="project__info">
+          <span class="project__index">02</span>
+          <h2 class="project__title">Consulenza assicurativa</h2>
+          <p class="project__desc">Landing page per una rete di consulenti assicurativi indipendenti. Toni azzurri istituzionali, blocchi a contrasto, accordion sui valori, numeri chiave e form di contatto.</p>
+          <ul class="project__tags">
+            <li>finanza</li><li>landing page</li><li>lead generation</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="project">
+        <button class="project__preview" type="button" data-full="assets/img/orientamento.jpg" aria-label="Apri anteprima: Consulenza di orientamento">
+          <img src="assets/img/orientamento.jpg" alt="Anteprima homepage di una consulente di orientamento" loading="lazy" width="1440" height="1064">
+        </button>
+        <div class="project__info">
+          <span class="project__index">03</span>
+          <h2 class="project__title">Consulenza di orientamento</h2>
+          <p class="project__desc">Sito personale per una consulente di orientamento e career guidance. Hero fotografico scuro, verde profondo come colore guida e una tipografia sans decisa per un tono professionale.</p>
+          <ul class="project__tags">
+            <li>personal brand</li><li>consulenza</li><li>multi-pagina</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="project">
+        <button class="project__preview" type="button" data-full="assets/img/energia.jpg" aria-label="Apri anteprima: Efficienza energetica">
+          <img src="assets/img/energia.jpg" alt="Anteprima homepage di una società di efficienza energetica" loading="lazy" width="1440" height="1230">
+        </button>
+        <div class="project__info">
+          <span class="project__index">04</span>
+          <h2 class="project__title">Efficienza energetica</h2>
+          <p class="project__desc">Sito corporate per una società di consulenza energetica in ambito industriale. Hero immersivo, gradienti blu-viola, tagli diagonali e sezioni dedicate a case study e processo.</p>
+          <ul class="project__tags">
+            <li>industria</li><li>B2B</li><li>corporate</li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="project">
+        <button class="project__preview" type="button" data-full="assets/img/personal.jpg" aria-label="Apri anteprima: Portfolio e pagina personale">
+          <img src="assets/img/personal.jpg" alt="Anteprima di un template per portfolio e pagina personale" loading="lazy" width="1440" height="1635">
+        </button>
+        <div class="project__info">
+          <span class="project__index">05</span>
+          <h2 class="project__title">Portfolio e pagina personale</h2>
+          <p class="project__desc">Template per portfolio e pagina personale. Hero fotografico con overlay, griglia di feature con icone lineari, contatori su fondo corallo e sezioni a tab.</p>
+          <ul class="project__tags">
+            <li>portfolio</li><li>template</li><li>one-page</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <span>&copy; <span id="year">2026</span></span>
+      <a href="mailto:fo.wpress@gmail.com">fo.wpress@gmail.com</a>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Anteprima completa">
+    <button class="lightbox__close" type="button" aria-label="Chiudi">[esc] chiudi</button>
+    <div class="lightbox__scroll">
+      <img class="lightbox__img" src="" alt="">
+    </div>
+  </dialog>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
