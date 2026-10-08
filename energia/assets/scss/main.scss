@@ -310,12 +310,6 @@ span.btn { pointer-events: none; cursor: default; }
 
   &__mail { font: 500 clamp(1.1rem, 1.6vw, 1.5rem)/1 $head; text-transform: uppercase; letter-spacing: .03em; }
 
-  &__lang {
-    padding: 8px 18px;
-    border: 1px solid rgba(255, 255, 255, .8);
-    border-radius: 6px;
-    font-size: .85rem;
-  }
 
   &__cols {
     display: grid;
@@ -334,12 +328,12 @@ span.btn { pointer-events: none; cursor: default; }
   &__bottom {
     display: grid;
     gap: 32px;
-    align-items: end;
+    align-items: center;
     margin-top: 64px;
     padding-top: 32px;
     border-top: 1px solid rgba(255, 255, 255, .25);
 
-    @include lg { grid-template-columns: auto 1fr auto; gap: 48px; }
+    @include lg { grid-template-columns: auto 1fr; gap: 48px; }
 
     > p { margin: 0; font-size: .85rem; color: rgba(255, 255, 255, .8); }
   }
@@ -354,14 +348,4 @@ span.btn { pointer-events: none; cursor: default; }
     svg { width: 40px; height: 40px; fill: none; stroke: $white; stroke-width: 2; }
   }
 
-  &__news {
-    max-width: 320px;
-    padding: 20px 22px;
-    border-radius: 10px;
-    background: $white;
-    color: $black;
-
-    strong { display: block; font: 600 1.05rem $head; text-transform: uppercase; }
-    p { margin: 6px 0 14px; font-size: .85rem; }
-  }
 }
