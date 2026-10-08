@@ -349,6 +349,10 @@ p {
   order: 2;
 }
 
+.two-col .text h2 {
+  margin-bottom: 24px;
+}
+
 .two-col .text p {
   color: var(--brown);
   margin-bottom: 18px;
@@ -392,8 +396,18 @@ p {
   transition: var(--transition);
 }
 
-.tile:hover .tile-overlay {
+/* gradients can't be animated: fade an orange layer in instead */
+.tile-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
   background: linear-gradient(180deg, rgba(237, 97, 59, 0.3) 0%, rgba(237, 97, 59, 0.92) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tile:hover .tile-overlay::after {
+  opacity: 1;
 }
 
 .tile-content {
