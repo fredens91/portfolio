@@ -33,13 +33,23 @@ body {
 
 img { display: block; max-width: 100%; height: auto; }
 
+// underline slides in from the left on hover, out to the right on leave
 a {
   color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
+  text-decoration: none;
+  padding-bottom: 2px;
+  background: linear-gradient(currentColor, currentColor) no-repeat right bottom / 0 1px;
+  transition: background-size 0.3s ease;
 
-  &:hover { text-decoration-thickness: 2px; }
+  &:hover,
+  &:focus-visible {
+    background-position: left bottom;
+    background-size: 100% 1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a { transition: none; }
 }
 
 :focus-visible { outline: 2px solid $c-text; outline-offset: 3px; }
