@@ -240,7 +240,7 @@ p {
 .block-hero .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(44, 31, 14, 0.55) 0%, rgba(44, 31, 14, 0.75) 100%);
+  background: rgba(0, 0, 0, 0.35);
 }
 
 .block-hero .content {
@@ -694,7 +694,7 @@ footer .disclaimer {
 
 /* Images ------------------------------------------------------------------ */
 
-.block-hero { background-image: url("../img/hero.webp"); }
+.block-hero { background-image: url("../img/hero.jpg"); }
 .tile--psicologico { background-image: url("../img/spazio-psicologico.webp"); }
 .tile--pedagogico { background-image: url("../img/spazio-pedagogico.webp"); }
 .tile--benessere { background-image: url("../img/spazio-benessere.jpg"); }
