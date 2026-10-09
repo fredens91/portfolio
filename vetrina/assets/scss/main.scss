@@ -340,6 +340,8 @@ a { color: inherit; text-underline-offset: 3px; }
     border: 1.5px solid $peach; // #f6d3c1
     background: transparent;
   }
+
+  &--outline-powder { border-color: $powder; } // #cfe0ef
 }
 
 // ---------- Products ----------
@@ -636,4 +638,3 @@ a { color: inherit; text-underline-offset: 3px; }
 // ---------- Utilities ----------
 .section--flush { padding-top: 0; }
 .more { margin: 32px 0 0; }
-.card--cream { --tone: #{$cream}; }
