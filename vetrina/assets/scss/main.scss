@@ -338,7 +338,7 @@ a { color: inherit; text-underline-offset: 3px; }
 
   // single-colour variants (override the alternating tones)
   &.card--peach { --tone: #{$peach}; }   // #f6d3c1
-  &.card--powder { --tone: #{$powder}; } // #cfe0ef
+  &.card--sage { --tone: #{$sage}; }     // #d3e6dc
 }
 
 // ---------- Products ----------
