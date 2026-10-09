@@ -335,6 +335,11 @@ a { color: inherit; text-underline-offset: 3px; }
   }
 
   p:last-child { margin-bottom: 0; }
+
+  &--outline {
+    border: 1.5px solid $peach; // #f6d3c1
+    background: transparent;
+  }
 }
 
 // ---------- Products ----------
