@@ -721,12 +721,12 @@ body.is-locked { overflow: hidden; }
 .pgrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 28px 16px;
+  gap: 40px 16px;
   margin: 0;
   padding: 0;
   list-style: none;
 
-  @include lg { grid-template-columns: repeat(3, 1fr); gap: 36px 24px; }
+  @include lg { grid-template-columns: repeat(3, 1fr); gap: 56px 24px; }
 
   &--4 { @include lg { grid-template-columns: repeat(4, 1fr); } }
 }
@@ -735,13 +735,15 @@ body.is-locked { overflow: hidden; }
   position: relative;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  border: 1px solid $line;
+  border-radius: $radius;
+  background: $white;
 
   &__media {
     position: relative;
     display: block;
     overflow: hidden;
-    margin-bottom: 14px;
-    border-radius: $radius;
     background: $peach;
 
     img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; transition: transform .6s ease; }
@@ -783,7 +785,7 @@ body.is-locked { overflow: hidden; }
     &.is-on svg { fill: $sale; stroke: $sale; }
   }
 
-  &__body { display: flex; flex: 1; flex-direction: column; }
+  &__body { display: flex; flex: 1; flex-direction: column; padding: 16px 18px 18px; background: $white; }
 
   &__cat { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: $muted; }
 
