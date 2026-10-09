@@ -270,8 +270,10 @@ h1, h2, h3 { margin: 0; font-family: $head; font-weight: 500; text-transform: up
 // ---------- process ----------
 .process {
   padding: 80px $pad 100px;
-  background: $black;
-  color: $white;
+  background: $white;
+  color: $black;
+
+  .slash::before { color: $violet; } // teal is too light on white
 
   > h2 { margin-bottom: 18px; font-size: clamp(1.4rem, 2vw, 2rem); }
   > p { margin: 0 0 30px; }
