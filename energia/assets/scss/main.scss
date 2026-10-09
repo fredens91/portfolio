@@ -154,54 +154,47 @@ h1, h2, h3 { margin: 0; font-family: $head; font-weight: 500; text-transform: up
   h1 { font-size: clamp(2rem, 4.2vw, 3.6rem); font-weight: 600; text-shadow: 0 2px 20px rgba(0, 0, 0, .3); }
 }
 
-// ---------- insight ----------
+// ---------- insight: violet panel cut diagonally over a photo ----------
 .insight {
   display: grid;
   background: $ink;
 
-  @include lg { grid-template-columns: 1fr 1fr; min-height: 520px; }
+  @include lg { grid-template-columns: 1fr 1fr; min-height: 560px; }
 
   &__panel {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 64px $pad;
-    background: linear-gradient(180deg, #4a40f5, $violet-dark);
+    padding: 72px $pad;
+    background: linear-gradient(160deg, #4a40f5, $violet-dark);
     color: $white;
 
-    // 50/50 split: the diagonal runs from 56% to 44%, centred on the middle line;
-    // both text columns get the same width (44% - gap - side padding)
+    // panel spans past the middle; the diagonal edge falls on the photo
     @include lg {
-      grid-column: 1 / 3;
+      grid-column: 1;
       grid-row: 1;
-      width: 56%;
-      padding-right: calc(12% + #{$split-gap});
-      clip-path: polygon(0 0, 100% 0, 78.57% 100%, 0 100%);
+      width: 128%;
+      padding-right: 28%;
+      clip-path: polygon(0 0, 100% 0, 78% 100%, 0 100%);
     }
 
-    h2 { margin-bottom: 18px; font-size: clamp(1.5rem, 2.2vw, 2.1rem); }
-    p { margin: 0 0 30px; font-size: 1rem; }
+    h2 { max-width: 620px; margin-bottom: 20px; font-size: clamp(1.8rem, 2.8vw, 2.7rem); }
+    p { max-width: 560px; margin: 0; font-size: 1.1rem; color: rgba($white, .88); }
   }
 
-  &__cta {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 28px;
-    padding: 56px $pad;
+  &__img {
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    object-fit: cover;
+    object-position: center 20%;
 
-    @include lg { grid-column: 1 / 3; grid-row: 1; padding: 0 $pad 0 calc(56% + #{$split-gap}); }
-
-    color: $white;
-
-    h2 { font-size: clamp(1.5rem, 2.2vw, 2.1rem); }
-    p { margin: -10px 0 2px; font-size: 1rem; }
+    @include lg { grid-column: 2; grid-row: 1; }
   }
-
 }
-
 
 // =====================================================================
 // Shared system: container, sections, heads, chamfered shapes
@@ -282,20 +275,6 @@ h1, h2, h3 { margin: 0; font-family: $head; font-weight: 500; text-transform: up
 .stat {
   position: relative;
   padding: 0 24px;
-
-  // slanted divider between figures
-  & + &::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 6px;
-    bottom: 6px;
-    width: 2px;
-    background: rgba($white, .35);
-    transform: skewX(-20deg);
-  }
-
-  &:nth-child(3)::before { @media (max-width: 1099px) { display: none; } }
 
   strong { display: block; margin-bottom: 8px; font: 600 clamp(2.2rem, 3.6vw, 3.4rem)/1 $head; color: $teal; }
   span { font-size: .95rem; color: rgba($white, .85); }
