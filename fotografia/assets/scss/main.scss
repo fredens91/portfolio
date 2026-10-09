@@ -311,3 +311,6 @@ span.btn { pointer-events: none; cursor: default; }
 
 // demo: header menu items are inert (hover kept)
 nav a:not([href]) { cursor: default; }
+
+// cards show a pointer, like clickable items
+.features li { cursor: pointer; }

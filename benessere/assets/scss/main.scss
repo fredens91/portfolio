@@ -399,3 +399,6 @@ p { margin: 0 0 1em; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
 }
+
+// cards show a pointer, like clickable items
+.card, .contact { cursor: pointer; }

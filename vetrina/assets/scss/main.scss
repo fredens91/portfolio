@@ -1334,3 +1334,6 @@ body.is-locked { overflow: hidden; }
 .pdp__buy .btn--grow {
   @media (max-width: #{$bp-md - 1px}) { order: 3; flex-basis: 100%; }
 }
+
+// cards show a pointer, like clickable items
+.pcard, .card, .review { cursor: pointer; }
