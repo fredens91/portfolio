@@ -195,16 +195,6 @@ p { margin: 0 0 1em; }
 
   &__content { max-width: 1180px; }
 
-  .eyebrow {
-    display: inline-block;
-    margin-bottom: 22px;
-    padding: 7px 14px;
-    border: 1px solid rgba(255, 255, 255, .35);
-    border-radius: 999px;
-    font-size: .8rem;
-    font-weight: 600;
-    letter-spacing: .08em;
-  }
 
   h1 { max-width: 640px; margin-bottom: 20px; color: $white; }
 
@@ -257,17 +247,6 @@ p { margin: 0 0 1em; }
   }
 }
 
-.facts {
-  display: grid;
-  gap: 10px;
-  margin: 8px 0 24px;
-  padding: 0;
-  list-style: none;
-  color: $ink;
-  font-weight: 600;
-
-  i { width: 22px; color: $accent; }
-}
 
 // ---------- cards (areas and ages share the same component) ----------
 .cards {
@@ -313,29 +292,7 @@ p { margin: 0 0 1em; }
     p { margin: 0; font-size: .97rem; }
   }
 
-  &__icon {
-    display: grid;
-    place-items: center;
-    width: 44px;
-    height: 44px;
-    margin: -50px 0 16px;
-    border-radius: 50%;
-    background: $accent;
-    color: $white;
-    box-shadow: 0 6px 16px rgba(200, 82, 44, .3);
-  }
 
-  &__tag {
-    align-self: flex-start;
-    margin-bottom: 12px;
-    padding: 4px 12px;
-    border-radius: 999px;
-    background: $accent-soft;
-    color: $accent-dark;
-    font-size: .78rem;
-    font-weight: 700;
-    letter-spacing: .04em;
-  }
 
   &__link {
     margin-top: auto;
