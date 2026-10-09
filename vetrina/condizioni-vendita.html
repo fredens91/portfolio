@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contatti · Vetrina</title>
-  <meta name="description" content="Assistenza clienti, informazioni sugli ordini e progetti su misura.">
+  <title>Condizioni di vendita · Vetrina</title>
+  <meta name="description" content="Condizioni generali di vendita del negozio online.">
   <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,7 @@
           <li><a class="nav__link" href="index.html">Home</a></li>
           <li><a class="nav__link" href="shop.html">Negozio</a></li>
           <li><a class="nav__link" href="chi-siamo.html">Chi siamo</a></li>
-          <li><a class="nav__link" href="contatti.html" aria-current="page">Contatti</a></li>
+          <li><a class="nav__link" href="contatti.html">Contatti</a></li>
           <li class="nav__search"><form action="shop.html" role="search"><label class="sr-only" for="q-m">Cerca prodotti</label><input id="q-m" name="q" type="search" placeholder="Cerca prodotti…"></form></li>
         </ul>
       </nav>
@@ -43,76 +43,34 @@
 
   <main id="main">
 
-
-    <section class="page-hero page-hero--sage">
+    <section class="page-hero page-hero--powder">
       <div class="container">
-        <span class="eyebrow">Contatti</span>
-        <h1>Parliamone.</h1>
-        <p class="lead">Scrivici per informazioni sui prodotti, preventivi o progetti su misura. Rispondiamo di solito entro due giorni lavorativi.</p>
+        <span class="eyebrow">Informativa</span>
+        <h1>Condizioni di vendita</h1>
+        <p class="lead">Condizioni generali che regolano gli acquisti sul negozio online, ai sensi del Codice del Consumo (D.Lgs. 206/2005).</p>
       </div>
     </section>
-
     <section class="section">
-      <div class="container contact">
-        <div class="contact__info">
-          <h2>Dove trovarci</h2>
-          <dl>
-            <dt>Indirizzo</dt>
-            <dd>Via Esempio 1<br>00000 Città (XX)</dd>
-            <dt>Email</dt>
-            <dd><a href="mailto:info@example.com">info@example.com</a></dd>
-            <dt>Telefono</dt>
-            <dd><a href="tel:+390000000000">+39 000 000 0000</a></dd>
-            <dt>Orari</dt>
-            <dd>Lunedì – venerdì, 9:00 – 18:00<br>Sabato su appuntamento</dd>
-          </dl>
-        </div>
-
-        <form class="form" id="contact-form" novalidate>
-          <div class="form__field">
-            <label for="nome">Nome e cognome *</label>
-            <input id="nome" name="nome" type="text" autocomplete="name" required>
-            <span class="form__error" data-error-for="nome" aria-live="polite"></span>
-          </div>
-          <div class="form__field">
-            <label for="email">Email *</label>
-            <input id="email" name="email" type="email" autocomplete="email" required>
-            <span class="form__error" data-error-for="email" aria-live="polite"></span>
-          </div>
-          <div class="form__field">
-            <label for="telefono">Telefono</label>
-            <input id="telefono" name="telefono" type="tel" autocomplete="tel">
-            <span class="form__error" data-error-for="telefono" aria-live="polite"></span>
-          </div>
-          <div class="form__field">
-            <label for="oggetto">Oggetto *</label>
-            <select id="oggetto" name="oggetto" required>
-              <option value="">Seleziona…</option>
-              <option>Informazioni su un ordine</option>
-              <option>Reso o rimborso</option>
-              <option>Progetto su misura</option>
-              <option>Altro</option>
-            </select>
-            <span class="form__error" data-error-for="oggetto" aria-live="polite"></span>
-          </div>
-          <div class="form__field form__field--full">
-            <label for="messaggio">Messaggio *</label>
-            <textarea id="messaggio" name="messaggio" minlength="10" required></textarea>
-            <span class="form__error" data-error-for="messaggio" aria-live="polite"></span>
-          </div>
-          <div class="form__field form__field--full">
-            <div class="form__check">
-              <input id="privacy" name="privacy" type="checkbox" required>
-              <label for="privacy">Ho letto l'<a href="privacy-policy.html">informativa sulla privacy</a> e acconsento al trattamento dei miei dati per ricevere una risposta alla mia richiesta. *</label>
-            </div>
-            <span class="form__error" data-error-for="privacy" aria-live="polite"></span>
-          </div>
-          <div class="form__field form__field--full">
-            <button class="btn" type="submit">Invia messaggio</button>
-          </div>
-          <p class="form__note form__field--full">* Campi obbligatori. Questo è un sito dimostrativo: il modulo verifica i dati ma non invia alcun messaggio.</p>
-          <p class="form__status form__field--full" tabindex="-1" role="status" hidden>Grazie! Il tuo messaggio è stato inviato (simulazione).</p>
-        </form>
+      <div class="container prose">
+        <p class="updated">Ultimo aggiornamento: [gg/mm/aaaa]</p>
+        <h2>1. Venditore</h2>
+        <p>I prodotti sono venduti da <strong>[Ragione sociale]</strong>, Via Esempio 1, 00000 Città (XX), P.IVA 00000000000, email <a href="mailto:info@example.com">info@example.com</a>.</p>
+        <h2>2. Prodotti e prezzi</h2>
+        <p>I prezzi sono espressi in euro e includono l'IVA. Le spese di spedizione sono indicate prima della conferma dell'ordine. Trattandosi di oggetti fatti a mano, piccole differenze di forma e colore rispetto alle immagini sono caratteristiche del prodotto e non difetti.</p>
+        <h2>3. Ordine e conclusione del contratto</h2>
+        <p>Il contratto si conclude con l'invio dell'email di conferma d'ordine. Il venditore può annullare un ordine in caso di indisponibilità del prodotto, rimborsando integralmente quanto pagato.</p>
+        <h2>4. Pagamenti</h2>
+        <p>Sono accettati carte di credito e di debito, PayPal e bonifico bancario. I dati di pagamento sono gestiti direttamente dai fornitori del servizio e non vengono conservati dal venditore.</p>
+        <h2>5. Spedizione</h2>
+        <p>Tempi e costi di consegna sono descritti nella pagina <a href="spedizioni-resi.html">Spedizioni e resi</a>.</p>
+        <h2>6. Diritto di recesso</h2>
+        <p>Il consumatore può recedere dal contratto entro <strong>14 giorni</strong> dalla consegna, senza indicarne il motivo, inviando una comunicazione a info@example.com. Per scelta del venditore il termine è esteso a 30 giorni. Il rimborso avviene entro 14 giorni dalla ricezione della comunicazione, con lo stesso mezzo di pagamento usato per l'acquisto. Sono esclusi dal recesso i prodotti personalizzati su richiesta del cliente.</p>
+        <h2>7. Garanzia legale di conformità</h2>
+        <p>Tutti i prodotti sono coperti dalla garanzia legale di conformità di 24 mesi prevista dagli artt. 128 e seguenti del Codice del Consumo.</p>
+        <h2>8. Risoluzione delle controversie</h2>
+        <p>Per eventuali reclami è possibile scrivere a info@example.com. Il consumatore può inoltre ricorrere alla piattaforma europea di risoluzione online delle controversie (ODR): <a href="https://ec.europa.eu/consumers/odr" rel="noopener">ec.europa.eu/consumers/odr</a>.</p>
+        <h2>9. Legge applicabile</h2>
+        <p>Le presenti condizioni sono regolate dalla legge italiana. Per i consumatori è competente il foro del luogo di residenza o domicilio.</p>
       </div>
     </section>
   </main>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ceramiche fatte a mano · Vetrina</title>
-  <meta name="description" content="Shop online di ceramiche artigianali: vasi, stoviglie e tazze fatte a mano.">
+  <title>Tazza Classica · Vetrina</title>
+  <meta name="description" content="Tazza da 300 ml, personalizzabile con decorazioni.">
   <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,8 +20,8 @@
       <a class="logo" href="index.html">Vetrina<span>.</span></a>
       <nav class="nav" aria-label="Principale">
         <ul class="nav__list" id="nav-list">
-          <li><a class="nav__link" href="index.html" aria-current="page">Home</a></li>
-          <li><a class="nav__link" href="shop.html">Negozio</a></li>
+          <li><a class="nav__link" href="index.html">Home</a></li>
+          <li><a class="nav__link" href="shop.html" aria-current="page">Negozio</a></li>
           <li><a class="nav__link" href="chi-siamo.html">Chi siamo</a></li>
           <li><a class="nav__link" href="contatti.html">Contatti</a></li>
           <li class="nav__search"><form action="shop.html" role="search"><label class="sr-only" for="q-m">Cerca prodotti</label><input id="q-m" name="q" type="search" placeholder="Cerca prodotti…"></form></li>
@@ -43,72 +43,68 @@
 
   <main id="main">
 
-    <section class="hero">
-      <div class="container hero__grid">
-        <div>
-          <span class="eyebrow">Nuova collezione autunno</span>
-          <h1>Ceramiche fatte a mano, consegnate a casa tua.</h1>
-          <p class="lead">Vasi, stoviglie e tazze modellati e smaltati nel nostro laboratorio, in piccole serie. Spedizione gratuita sopra i 60 €.</p>
-          <div class="hero__actions">
-            <a class="btn" href="shop.html">Acquista ora</a>
-            <a class="btn btn--ghost" href="shop.html?cat=vasi">Scopri i vasi</a>
+    <section class="section section--tight">
+      <div class="container">
+        <nav class="crumbs" aria-label="Percorso"><a href="index.html">Home</a> / <a href="shop.html">Negozio</a> / <a href="shop.html?cat=tazze">Tazze</a> / <span>Tazza Classica</span></nav>
+        <div class="pdp" data-product="tazza-classica">
+          <div class="pdp__gallery">
+            <div class="pdp__main"><img id="pdp-main" src="assets/img/prodotto-tazze.jpg" alt="Due tazze bianche in ceramica" width="900" height="600"></div>
+            <div class="pdp__thumbs">
+              <button type="button" class="is-active" data-thumb="assets/img/prodotto-tazze.jpg" aria-label="Foto 1"><img src="assets/img/prodotto-tazze.jpg" alt=""></button>
+              <button type="button" data-thumb="assets/img/mani.jpg" aria-label="Foto 2"><img src="assets/img/mani.jpg" alt=""></button>
+              <button type="button" data-thumb="assets/img/laboratorio.jpg" aria-label="Foto 3"><img src="assets/img/laboratorio.jpg" alt=""></button>
+            </div>
           </div>
-        </div>
-        <div class="hero__media">
-          <img src="assets/img/hero.jpg" alt="Vasi in ceramica dai toni pastello con spighe secche" width="1920" height="1280">
+          <div class="pdp__info">
+            
+            <h1>Tazza Classica</h1>
+            <p class="rating" aria-label="Valutazione 4.6 su 5"><span aria-hidden="true">★★★★★</span> 4,6 &middot; 57 recensioni</p>
+            <p class="pdp__price"><span class="price">€ 16,00</span> <small>IVA inclusa</small></p>
+            <p>Tazza da 300 ml, personalizzabile con decorazioni.</p>
+            <fieldset class="pdp__options">
+              <legend>Colore</legend>
+              <div class="swatches"><label class="swatch"><input type="radio" name="color" value="Bianco latte" checked><span>Bianco latte</span></label><label class="swatch"><input type="radio" name="color" value="Sabbia"><span>Sabbia</span></label><label class="swatch"><input type="radio" name="color" value="Salvia"><span>Salvia</span></label></div>
+            </fieldset>
+            <div class="pdp__buy">
+              <div class="qty" data-qty>
+                <button type="button" data-step="-1" aria-label="Diminuisci quantità">−</button>
+                <input type="number" value="1" min="1" max="10" aria-label="Quantità">
+                <button type="button" data-step="1" aria-label="Aumenta quantità">+</button>
+              </div>
+              <button class="btn btn--grow" type="button" data-add="tazza-classica" data-from-pdp>Aggiungi al carrello &middot; € 16,00</button>
+              <button class="icon-btn icon-btn--outline" type="button" data-wish="tazza-classica" aria-pressed="false" aria-label="Aggiungi ai preferiti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5c-2.2 4.6-9.2 9-9.2 9z"/></svg></button>
+            </div>
+            <p class="stock"><span class="dot"></span> Disponibile &middot; spedito in 48 ore</p>
+            <ul class="pdp__perks">
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6h11v10H2zM13 10h4l3 3v3h-7z"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg> Spedizione gratuita sopra i 60 €</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h11a5 5 0 0 1 0 10H8"/><path d="M8 5L4 9l4 4"/></svg> Reso gratuito entro 30 giorni</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Pagamento sicuro</li>
+            </ul>
+            <div class="accordion">
+              <details open><summary>Descrizione</summary><p>La nostra tazza più amata: 300 ml di capienza, manico comodo e pareti spesse che mantengono il calore. Su richiesta può essere personalizzata.</p></details>
+              <details><summary>Materiali e cura</summary><p>Gres ceramico cotto ad alta temperatura, smalti senza piombo adatti al contatto con gli alimenti. Lavabile in lavastoviglie; evitare gli sbalzi termici improvvisi.</p></details>
+              <details><summary>Spedizione e resi</summary><p>Spedizione in 48/72 ore con imballaggio protettivo e plastic-free. Reso gratuito entro 30 giorni dalla consegna. <a href="spedizioni-resi.html">Maggiori informazioni</a>.</p></details>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section section--flush">
       <div class="container">
-        <div class="section__head section__head--row">
-          <div>
-            <span class="eyebrow">Categorie</span>
-            <h2>Cosa stai cercando?</h2>
-          </div>
-        </div>
-        <div class="cats">
-          <a class="cat cat--peach" href="shop.html?cat=tavola"><img src="assets/img/prodotto-servizio.jpg" alt="" width="900" height="1350" loading="lazy"><span>Tavola</span></a>
-          <a class="cat cat--powder" href="shop.html?cat=vasi"><img src="assets/img/prodotto-anello.jpg" alt="" width="900" height="1350" loading="lazy"><span>Vasi</span></a>
-          <a class="cat cat--sage" href="shop.html?cat=tazze"><img src="assets/img/prodotto-tazze.jpg" alt="" width="900" height="600" loading="lazy"><span>Tazze</span></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section__head section__head--row">
-          <div>
-            <span class="eyebrow">I più amati</span>
-            <h2>Bestseller del momento</h2>
-          </div>
-          <a class="link-arrow" href="shop.html">Vedi tutto &rarr;</a>
-        </div>
+        <div class="section__head"><h2>Potrebbe piacerti anche</h2></div>
         <ul class="pgrid pgrid--4">
-          <li class="pcard" data-id="collezione-gocce" data-cat="vasi" data-price="36.0" data-name="collezione gocce">
-            <a class="pcard__media" href="prodotto-collezione-gocce.html">
-              <span class="pcard__badge">Bestseller</span><img src="assets/img/prodotto-vasi.jpg" alt="Piccoli vasi in ceramica smaltata di vari colori" width="900" height="600" loading="lazy">
+          <li class="pcard" data-id="tazza-decoro" data-cat="tazze" data-price="22.0" data-name="tazza decoro">
+            <a class="pcard__media" href="prodotto-tazza-decoro.html">
+              <img src="assets/img/prodotto-decoro.jpg" alt="Tazza e piattini in porcellana decorata" width="900" height="1200" loading="lazy">
             </a>
-            <button class="pcard__wish" type="button" data-wish="collezione-gocce" aria-pressed="false" aria-label="Aggiungi Collezione Gocce ai preferiti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5c-2.2 4.6-9.2 9-9.2 9z"/></svg></button>
-            <div class="pcard__body">
-              <span class="pcard__cat">Vasi</span>
-              <h3><a href="prodotto-collezione-gocce.html">Collezione Gocce</a></h3>
-              <p class="rating" aria-label="Valutazione 5.0 su 5"><span aria-hidden="true">★★★★★</span> <small>(41)</small></p>
-              <p class="pcard__price"><span class="price">€ 36,00</span></p>
-              <button class="btn btn--sm btn--block" type="button" data-add="collezione-gocce">Aggiungi al carrello</button>
-            </div>
-          </li><li class="pcard" data-id="tazza-classica" data-cat="tazze" data-price="16.0" data-name="tazza classica">
-            <a class="pcard__media" href="prodotto-tazza-classica.html">
-              <img src="assets/img/prodotto-tazze.jpg" alt="Due tazze bianche in ceramica" width="900" height="600" loading="lazy">
-            </a>
-            <button class="pcard__wish" type="button" data-wish="tazza-classica" aria-pressed="false" aria-label="Aggiungi Tazza Classica ai preferiti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5c-2.2 4.6-9.2 9-9.2 9z"/></svg></button>
+            <button class="pcard__wish" type="button" data-wish="tazza-decoro" aria-pressed="false" aria-label="Aggiungi Tazza Decoro ai preferiti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5c-2.2 4.6-9.2 9-9.2 9z"/></svg></button>
             <div class="pcard__body">
               <span class="pcard__cat">Tazze</span>
-              <h3><a href="prodotto-tazza-classica.html">Tazza Classica</a></h3>
-              <p class="rating" aria-label="Valutazione 4.6 su 5"><span aria-hidden="true">★★★★★</span> <small>(57)</small></p>
-              <p class="pcard__price"><span class="price">€ 16,00</span></p>
-              <button class="btn btn--sm btn--block" type="button" data-add="tazza-classica">Aggiungi al carrello</button>
+              <h3><a href="prodotto-tazza-decoro.html">Tazza Decoro</a></h3>
+              <p class="rating" aria-label="Valutazione 4.7 su 5"><span aria-hidden="true">★★★★★</span> <small>(12)</small></p>
+              <p class="pcard__price"><span class="price">€ 22,00</span></p>
+              <button class="btn btn--sm btn--block" type="button" data-add="tazza-decoro">Aggiungi al carrello</button>
             </div>
           </li><li class="pcard" data-id="servizio-essenziale" data-cat="tavola" data-price="54.0" data-name="servizio essenziale">
             <a class="pcard__media" href="prodotto-servizio-essenziale.html">
@@ -122,66 +118,32 @@
               <p class="pcard__price"><span class="price">€ 54,00</span></p>
               <button class="btn btn--sm btn--block" type="button" data-add="servizio-essenziale">Aggiungi al carrello</button>
             </div>
-          </li><li class="pcard" data-id="vaso-anello" data-cat="vasi" data-price="29.0" data-name="vaso anello">
-            <a class="pcard__media" href="prodotto-vaso-anello.html">
-              <span class="pcard__badge">Novità</span><img src="assets/img/prodotto-anello.jpg" alt="Vaso bianco a forma di anello con fiori secchi" width="900" height="1350" loading="lazy">
+          </li><li class="pcard" data-id="anfora-sabbia" data-cat="vasi" data-price="42.0" data-name="anfora sabbia">
+            <a class="pcard__media" href="prodotto-anfora-sabbia.html">
+              <span class="pcard__badge pcard__badge--sale">-15%</span><img src="assets/img/prodotto-anfora.jpg" alt="Anfora in ceramica color sabbia" width="900" height="1350" loading="lazy">
             </a>
-            <button class="pcard__wish" type="button" data-wish="vaso-anello" aria-pressed="false" aria-label="Aggiungi Vaso Anello ai preferiti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5c-2.2 4.6-9.2 9-9.2 9z"/></svg></button>
+            <button class="pcard__wish" type="button" data-wish="anfora-sabbia" aria-pressed="false" aria-label="Aggiungi Anfora Sabbia ai preferiti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5c-2.2 4.6-9.2 9-9.2 9z"/></svg></button>
             <div class="pcard__body">
               <span class="pcard__cat">Vasi</span>
-              <h3><a href="prodotto-vaso-anello.html">Vaso Anello</a></h3>
-              <p class="rating" aria-label="Valutazione 4.9 su 5"><span aria-hidden="true">★★★★★</span> <small>(9)</small></p>
-              <p class="pcard__price"><span class="price">€ 29,00</span></p>
-              <button class="btn btn--sm btn--block" type="button" data-add="vaso-anello">Aggiungi al carrello</button>
+              <h3><a href="prodotto-anfora-sabbia.html">Anfora Sabbia</a></h3>
+              <p class="rating" aria-label="Valutazione 4.9 su 5"><span aria-hidden="true">★★★★★</span> <small>(18)</small></p>
+              <p class="pcard__price"><span class="price price--sale">€ 42,00</span> <s class="price-old">€ 49,00</s></p>
+              <button class="btn btn--sm btn--block" type="button" data-add="anfora-sabbia">Aggiungi al carrello</button>
+            </div>
+          </li><li class="pcard" data-id="set-colazione" data-cat="tavola" data-price="38.0" data-name="set colazione">
+            <a class="pcard__media" href="prodotto-set-colazione.html">
+              <img src="assets/img/prodotto-ciotole.jpg" alt="Ciotole e piatti bianchi su un tavolo in legno" width="900" height="599" loading="lazy">
+            </a>
+            <button class="pcard__wish" type="button" data-wish="set-colazione" aria-pressed="false" aria-label="Aggiungi Set Colazione ai preferiti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5c-2.2 4.6-9.2 9-9.2 9z"/></svg></button>
+            <div class="pcard__body">
+              <span class="pcard__cat">Tavola</span>
+              <h3><a href="prodotto-set-colazione.html">Set Colazione</a></h3>
+              <p class="rating" aria-label="Valutazione 4.7 su 5"><span aria-hidden="true">★★★★★</span> <small>(24)</small></p>
+              <p class="pcard__price"><span class="price">€ 38,00</span></p>
+              <button class="btn btn--sm btn--block" type="button" data-add="set-colazione">Aggiungi al carrello</button>
             </div>
           </li>
         </ul>
-      </div>
-    </section>
-
-    <section class="section section--sage">
-      <div class="container split">
-        <div>
-          <img src="assets/img/laboratorio.jpg" alt="Mani che modellano un vaso di argilla" width="1200" height="800" loading="lazy">
-        </div>
-        <div>
-          <span class="eyebrow">Il laboratorio</span>
-          <h2>Ogni pezzo passa dalle nostre mani.</h2>
-          <p>Modelliamo, smaltiamo e cuociamo ogni oggetto sotto lo stesso tetto. Per questo ogni pezzo è leggermente diverso dall'altro, ed è proprio questo il bello.</p>
-          <a class="btn btn--ghost" href="chi-siamo.html">La nostra storia</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section__head">
-          <span class="eyebrow">Recensioni</span>
-          <h2>Cosa dicono i nostri clienti</h2>
-          <p class="rating rating--lg"><span aria-hidden="true">★★★★★</span> 4,8 su 5 &middot; oltre 200 recensioni verificate</p>
-        </div>
-        <div class="reviews">
-          <figure class="review"><p class="rating" aria-label="5 su 5"><span aria-hidden="true">★★★★★</span></p><blockquote>“Le tazze sono ancora più belle dal vivo. Imballaggio curatissimo e consegna in due giorni.”</blockquote><figcaption>Giulia M. · Acquisto verificato</figcaption></figure>
-          <figure class="review"><p class="rating" aria-label="5 su 5"><span aria-hidden="true">★★★★★</span></p><blockquote>“Ho regalato il Servizio Essenziale: ogni pezzo è unico, si sente che è fatto a mano.”</blockquote><figcaption>Marco T. · Acquisto verificato</figcaption></figure>
-          <figure class="review"><p class="rating" aria-label="4 su 5"><span aria-hidden="true">★★★★☆</span></p><blockquote>“Vaso Anello bellissimo. Mi hanno aiutata a scegliere il colore via email, gentilissimi.”</blockquote><figcaption>Sara L. · Acquisto verificato</figcaption></figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--flush">
-      <div class="container">
-        <div class="newsletter">
-          <div>
-            <h2>-10% sul primo ordine</h2>
-            <p>Iscriviti alla newsletter: novità, pezzi unici e il codice sconto di benvenuto.</p>
-          </div>
-          <form class="newsletter__form" data-newsletter novalidate>
-            <label class="sr-only" for="nl-email">Email</label>
-            <input id="nl-email" type="email" placeholder="La tua email" required>
-            <button class="btn" type="submit">Iscriviti</button>
-            <p class="newsletter__ok" hidden>Grazie! Usa il codice <strong>BENVENUTO10</strong> al checkout.</p>
-          </form>
-        </div>
       </div>
     </section>
   </main>
