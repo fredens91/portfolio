@@ -8,161 +8,178 @@
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body class="is-loading">
+<body>
 
-  <header id="navbar">
-    <a href="#hero" class="logo">Logo</a>
-    <button id="nav-toggle" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="nav-menu">
-      <span></span><span></span><span></span>
-    </button>
-    <nav id="nav-menu" aria-label="Principale">
-      <a>Servizi</a>
-      <a>Chi siamo</a>
-      <a>A chi ci rivolgiamo</a>
-      <a>Missione</a>
-      <span class="button small">Contattaci</span>
-    </nav>
+  <header class="nav" id="navbar">
+    <div class="container nav__inner">
+      <span class="logo">Logo</span>
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav__menu" id="nav-menu" aria-label="Principale">
+        <a>Chi siamo</a>
+        <a>Aree</a>
+        <a>A chi ci rivolgiamo</a>
+        <a>Missione</a>
+        <span class="btn btn--sm">Contattaci</span>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section id="hero" class="block-hero">
-      <div class="overlay"></div>
-      <div class="content">
-        <span class="eyebrow">Centro multidisciplinare di psicologia e benessere</span>
+    <section class="hero">
+      <div class="container hero__content">
+        <span class="eyebrow">Psicologia · Pedagogia · Benessere</span>
         <h1>Benvenuti al Centro Alba</h1>
         <p>Un luogo accogliente dove ritrovare ascolto, equilibrio e fiducia, a ogni età.</p>
-        <div class="actions">
-          <span class="button big">Scopri i nostri servizi</span>
-          <span class="button big alt">Contattaci</span>
+        <div class="hero__actions">
+          <span class="btn">Scopri le nostre aree</span>
+          <span class="btn btn--ghost">Prenota un colloquio</span>
         </div>
       </div>
-      <a href="#chi-siamo" class="scroll-cue" aria-label="Scorri verso il basso"><i class="fa-solid fa-chevron-down"></i></a>
     </section>
 
-    <section id="chi-siamo" class="block">
-      <div class="inner two-col">
-        <div class="col text">
+    <section class="section">
+      <div class="container split">
+        <div class="split__text">
           <span class="kicker">Chi siamo</span>
           <h2>Il centro Alba</h2>
           <p>Al Centro Alba psicologi, educatori e operatori del benessere lavorano fianco a fianco. Accompagniamo bambini, ragazzi e adulti con percorsi costruiti sulla singola persona, per affrontare i momenti difficili e coltivare serenità nella vita quotidiana.</p>
           <p>Guardiamo a ciascuno nella sua interezza, tenendo conto delle relazioni e del contesto familiare in cui vive.</p>
-          <span class="button">Conosci il centro</span>
+          <ul class="facts">
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Équipe multidisciplinare</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Percorsi su misura</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i>Dall'infanzia all'età adulta</li>
+          </ul>
+          <span class="btn">Conosci il centro</span>
         </div>
-        <div class="col image">
+        <figure class="split__media">
           <img src="assets/img/centro.jpg" alt="Bambini che dipingono con gli acquerelli" width="1200" height="800">
-        </div>
+        </figure>
       </div>
     </section>
 
-    <section id="servizi" class="block block-alt">
-      <div class="inner">
+    <section class="section section--cream">
+      <div class="container">
         <header class="section-head">
           <span class="kicker">Le nostre aree</span>
           <h2>Tre aree, un solo progetto di cura</h2>
+          <p>Competenze diverse che lavorano insieme, per offrire a ciascuno il sostegno più adatto.</p>
         </header>
-        <div class="grid three">
-          <article class="tile tile--psicologico">
-            <div class="tile-overlay"></div>
-            <div class="tile-content">
-              <i class="fa-solid fa-brain" aria-hidden="true"></i>
+        <div class="cards">
+          <article class="card">
+            <div class="card__media"><img src="assets/img/spazio-psicologico.webp" alt="Colloquio con uno psicologo" width="1920" height="745" loading="lazy"></div>
+            <div class="card__body">
+              <span class="card__icon"><i class="fa-solid fa-brain" aria-hidden="true"></i></span>
               <h3>Psicologia</h3>
               <p>Colloqui individuali, di coppia e familiari per elaborare emozioni, superare momenti di crisi e prendersi cura della propria salute mentale.</p>
-              <span class="link">Approfondisci</span>
+              <span class="card__link">Approfondisci</span>
             </div>
           </article>
-          <article class="tile tile--pedagogico">
-            <div class="tile-overlay"></div>
-            <div class="tile-content">
-              <i class="fa-solid fa-horse" aria-hidden="true"></i>
+          <article class="card">
+            <div class="card__media"><img src="assets/img/spazio-pedagogico.webp" alt="Bambini durante un laboratorio" width="1920" height="911" loading="lazy"></div>
+            <div class="card__body">
+              <span class="card__icon"><i class="fa-solid fa-shapes" aria-hidden="true"></i></span>
               <h3>Pedagogia</h3>
               <p>Laboratori e percorsi educativi che sostengono l'apprendimento, la creatività e le competenze relazionali di bambini e ragazzi.</p>
-              <span class="link">Approfondisci</span>
+              <span class="card__link">Approfondisci</span>
             </div>
           </article>
-          <article class="tile tile--benessere">
-            <div class="tile-overlay"></div>
-            <div class="tile-content">
-              <i class="fa-solid fa-spa" aria-hidden="true"></i>
+          <article class="card">
+            <div class="card__media"><img src="assets/img/spazio-benessere.jpg" alt="Persona durante una sessione di rilassamento" width="1920" height="1080" loading="lazy"></div>
+            <div class="card__body">
+              <span class="card__icon"><i class="fa-solid fa-spa" aria-hidden="true"></i></span>
               <h3>Benessere</h3>
               <p>Yoga, mindfulness e tecniche di rilassamento per ritrovare energia, ridurre lo stress e ascoltare meglio corpo e mente.</p>
-              <span class="link">Approfondisci</span>
+              <span class="card__link">Approfondisci</span>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="target" class="block">
-      <div class="inner">
+    <section class="section">
+      <div class="container">
         <header class="section-head">
           <span class="kicker">A chi ci rivolgiamo</span>
           <h2>Per ogni fase della vita</h2>
           <p>Dall'infanzia all'età adulta, ogni fase porta con sé domande e sfide diverse. Per questo il centro offre percorsi dedicati, che possono intrecciarsi tra loro quando serve uno sguardo più ampio.</p>
         </header>
-        <div class="grid three cards-age">
-          <div class="age-card age-card--infanzia">
-            <div class="age-overlay"></div>
-            <span class="age-title">Infanzia</span>
-          </div>
-          <div class="age-card age-card--adolescenti">
-            <div class="age-overlay"></div>
-            <span class="age-title">Adolescenti</span>
-          </div>
-          <div class="age-card age-card--adulti">
-            <div class="age-overlay"></div>
-            <span class="age-title">Adulti</span>
-          </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card__media"><img src="assets/img/infanzia.webp" alt="Bambini che giocano insieme" width="1920" height="784" loading="lazy"></div>
+            <div class="card__body">
+              <span class="card__tag">0–11 anni</span>
+              <h3>Infanzia</h3>
+              <p>Gioco, ascolto e attività educative per sostenere lo sviluppo emotivo e relazionale dei più piccoli, con il coinvolgimento costante dei genitori.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__media"><img src="assets/img/adolescenti.webp" alt="Ragazze sorridenti" width="1920" height="630" loading="lazy"></div>
+            <div class="card__body">
+              <span class="card__tag">12–18 anni</span>
+              <h3>Adolescenti</h3>
+              <p>Uno spazio riservato in cui ragazze e ragazzi possono parlare liberamente di scuola, relazioni, identità e futuro.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__media"><img src="assets/img/adulti.webp" alt="Adulti durante una lezione di yoga" width="1920" height="1091" loading="lazy"></div>
+            <div class="card__body">
+              <span class="card__tag">Adulti e famiglie</span>
+              <h3>Adulti</h3>
+              <p>Supporto psicologico, sostegno alla genitorialità e attività per il benessere psicofisico, con tempi e modalità su misura.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="missione" class="block-feature">
-      <div class="overlay"></div>
-      <div class="content">
-        <span class="kicker light">La nostra missione</span>
-        <blockquote>&ldquo;Ogni cambiamento inizia con un primo passo, fatto al proprio ritmo&rdquo;</blockquote>
+    <section class="mission">
+      <div class="container mission__content">
+        <span class="kicker kicker--light">La nostra missione</span>
+        <blockquote>&ldquo;Ogni cambiamento inizia con un primo passo, fatto al proprio ritmo.&rdquo;</blockquote>
         <p>Crediamo che il benessere nasca dal rispetto dei tempi di ciascuno. Rallentare, osservarsi e chiedere aiuto quando serve non sono segni di debolezza, ma il modo più autentico per ritrovare le proprie risorse.</p>
-        <span class="button big alt">Scopri i nostri servizi</span>
       </div>
     </section>
 
-    <section id="team" class="block block-alt">
-      <div class="inner two-col reverse">
-        <div class="col image">
-          <img src="assets/img/team-colloquio.jpg" alt="Colloquio con una professionista del centro" width="600" height="600">
-        </div>
-        <div class="col text">
+    <section class="section section--cream">
+      <div class="container split split--reverse">
+        <div class="split__text">
           <span class="kicker">Il team</span>
           <h2>Professionisti diversi, un unico obiettivo</h2>
           <p>Psicologi, pedagogisti e operatori del benessere condividono lo stesso metodo: mettere la persona al centro e coordinarsi in équipe per offrire il percorso più adatto.</p>
           <p>Lavori nell'ambito della salute, dell'educazione o del benessere? Ci farebbe piacere conoscerti.</p>
-          <span class="button">Collabora con noi</span>
+          <span class="btn">Collabora con noi</span>
         </div>
+        <figure class="split__media">
+          <img src="assets/img/team-colloquio.jpg" alt="Colloquio con una professionista del centro" width="600" height="600" loading="lazy">
+        </figure>
       </div>
     </section>
 
-    <section id="contatti" class="block block-contacts">
-      <div class="inner">
+    <section class="section">
+      <div class="container">
         <header class="section-head">
           <span class="kicker">Contatti</span>
           <h2>Parliamone insieme</h2>
+          <p>Scrivici o chiamaci: fissiamo insieme un primo colloquio conoscitivo.</p>
         </header>
-        <div class="grid three contact-grid">
-          <div class="contact-card">
+        <div class="contacts">
+          <div class="contact">
             <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
             <h3>WhatsApp</h3>
             <span>000 000 0000</span>
           </div>
-          <div class="contact-card">
+          <div class="contact">
             <i class="fa-solid fa-envelope" aria-hidden="true"></i>
             <h3>Email</h3>
             <span>info@example.com</span>
           </div>
-          <div class="contact-card">
+          <div class="contact">
             <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
             <h3>Dove siamo</h3>
             <span>Via Esempio 1, 00000 Città</span>
@@ -177,50 +194,47 @@
     </section>
   </main>
 
-  <footer>
-    <div class="inner">
-      <span class="logo">Logo</span>
-      <p>&copy; 2026 Centro Alba &middot; P.IVA 00000000000</p>
-      <p class="disclaimer">Questo sito usa esclusivamente cookie tecnici e non effettua alcuna profilazione degli utenti.</p>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <span class="logo">Logo</span>
+        <p>Centro multidisciplinare di psicologia, pedagogia e benessere.</p>
+      </div>
+      <div class="footer__meta">
+        <p>&copy; 2026 Centro Alba &middot; P.IVA 00000000000</p>
+        <p>Questo sito usa esclusivamente cookie tecnici e non effettua alcuna profilazione.</p>
+      </div>
     </div>
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      document.body.classList.remove('is-loading');
-
+    (() => {
       // navbar: solid background after a bit of scroll
       const navbar = document.getElementById('navbar');
-      const toggleSolid = () => navbar.classList.toggle('is-solid', window.scrollY > 60);
+      const toggleSolid = () => navbar.classList.toggle('is-solid', window.scrollY > 40);
       toggleSolid();
-      window.addEventListener('scroll', toggleSolid);
+      window.addEventListener('scroll', toggleSolid, { passive: true });
 
       // mobile menu
-      const navToggle = document.getElementById('nav-toggle');
-      const navMenu = document.getElementById('nav-menu');
-      navToggle.addEventListener('click', () => {
-        const open = navMenu.classList.toggle('is-open');
-        navToggle.setAttribute('aria-expanded', String(open));
+      const toggle = document.getElementById('nav-toggle');
+      const menu = document.getElementById('nav-menu');
+      toggle.addEventListener('click', () => {
+        const open = menu.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(open));
+        navbar.classList.toggle('is-menu-open', open);
       });
-      navMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
-        navMenu.classList.remove('is-open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      }));
 
       // reveal on scroll
-      const targets = document.querySelectorAll('.two-col .col, .section-head, .tile, .age-card, .contact-card, .block-feature .content');
-      if (!('IntersectionObserver' in window)) return;
+      if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const targets = document.querySelectorAll('.section-head, .split__text, .split__media, .card, .contact, .mission__content');
       targets.forEach((el) => el.classList.add('reveal'));
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
         });
-      }, { threshold: 0.15 });
-      targets.forEach((el) => observer.observe(el));
-    });
+      }, { threshold: 0.12 });
+      targets.forEach((el) => io.observe(el));
+    })();
   </script>
 </body>
 </html>
