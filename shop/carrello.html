@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carrello · Shop</title>
+  <meta name="description" content="Il tuo carrello.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Vai al contenuto</a>
+  <div class="announce">Spedizione gratuita sopra i <strong>79 €</strong> &middot; Reso gratuito entro 30 giorni</div>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html">Shop<span>.</span></a>
+      <nav class="nav" aria-label="Principale">
+        <ul class="nav__list" id="nav-list">
+          <li><a class="nav__link" href="index.html">Home</a></li>
+          <li><a class="nav__link" href="shop.html">Prodotti</a></li>
+          <li><a class="nav__link" href="chi-siamo.html">Chi siamo</a></li>
+          <li><a class="nav__link" href="contatti.html">Contatti</a></li>
+          <li class="nav__search"><form action="shop.html" role="search"><label class="sr-only" for="q-m">Cerca prodotti</label><input id="q-m" name="q" type="search" placeholder="Cerca prodotti…"></form></li>
+        </ul>
+      </nav>
+      <div class="tools">
+        <form class="search" action="shop.html" role="search">
+          <label class="sr-only" for="q">Cerca prodotti</label>
+          <input id="q" name="q" type="search" placeholder="Cerca…" autocomplete="off">
+          <button class="icon-btn" type="submit" aria-label="Cerca"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>
+        </form>
+        <a class="icon-btn" href="accedi.html" aria-label="Il mio account"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a>
+        <a class="icon-btn" href="preferiti.html" aria-label="Preferiti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5c-2.2 4.6-9.2 9-9.2 9z"/></svg><span class="badge" data-wish-count hidden>0</span></a>
+        <button class="icon-btn" type="button" data-cart-open aria-label="Apri il carrello"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="badge" data-cart-count hidden>0</span></button>
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-list" aria-label="Apri menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="section section--tight section--light">
+      <div class="container">
+        <nav class="crumbs" aria-label="Percorso"><a href="index.html">Home</a> / <span>Carrello</span></nav>
+        <h1>Il tuo carrello</h1>
+        <div class="cart" data-cart-page>
+          <div>
+            <ul class="cart__lines" data-cart-lines></ul>
+            <div class="empty" data-cart-empty hidden>
+              <p>Il carrello è vuoto.</p>
+              <a class="btn" href="shop.html">Continua lo shopping</a>
+            </div>
+          </div>
+          <aside class="summary" data-summary>
+            <h2>Riepilogo</h2>
+            <div class="ship-bar" data-ship-bar></div>
+            <form class="coupon" data-coupon>
+              <label class="sr-only" for="coupon">Codice sconto</label>
+              <input id="coupon" type="text" placeholder="Codice sconto" autocomplete="off">
+              <button class="btn btn--ghost btn--sm" type="submit">Applica</button>
+            </form>
+            <p class="coupon__msg" data-coupon-msg></p>
+            <dl class="totals" data-totals></dl>
+            <a class="btn btn--block" href="checkout.html">Procedi al checkout</a>
+            <p class="summary__note"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Pagamento sicuro &middot; Resi gratuiti entro 30 giorni</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <a class="logo" href="index.html">Shop<span>.</span></a>
+      <p class="site-footer__tag">Attrezzatura outdoor selezionata e provata in montagna, spedita in tutta Italia.</p>
+      <ul class="site-footer__links">
+        <li><a href="shop.html">Prodotti</a></li>
+        <li><a href="chi-siamo.html">Chi siamo</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+        <li><a href="spedizioni-resi.html">Spedizioni e resi</a></li>
+        <li><a href="condizioni-vendita.html">Condizioni di vendita</a></li>
+        <li><a href="privacy-policy.html">Privacy</a></li>
+        <li><a href="cookie-policy.html">Cookie</a></li>
+      </ul>
+      <div class="payments" aria-label="Metodi di pagamento accettati">
+        <span>Visa</span><span>Mastercard</span><span>PayPal</span><span>Apple Pay</span><span>Bonifico</span>
+      </div>
+      <p class="site-footer__bottom">&copy; <span data-year>2026</span> Shop · P.IVA 00000000000 · Foto: <a href="https://stocksnap.io" rel="noopener">StockSnap</a> (CC0)</p>
+    </div>
+  </footer>
+
+  <aside class="drawer" id="cart-drawer" aria-label="Carrello" aria-hidden="true">
+    <div class="drawer__overlay" data-cart-close></div>
+    <div class="drawer__panel" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+      <div class="drawer__head">
+        <h2 id="drawer-title">Il tuo carrello</h2>
+        <button class="icon-btn" type="button" data-cart-close aria-label="Chiudi il carrello"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+      <div class="drawer__body" data-mini-cart></div>
+      <div class="drawer__foot">
+        <div class="ship-bar" data-ship-bar></div>
+        <p class="drawer__total"><span>Subtotale</span><strong data-mini-subtotal>€ 0,00</strong></p>
+        <a class="btn btn--block" href="checkout.html">Vai al checkout</a>
+        <a class="btn btn--ghost btn--block" href="carrello.html">Vedi il carrello</a>
+      </div>
+    </div>
+  </aside>
+
+  <div class="toast" role="status" aria-live="polite" hidden></div>
+
+  <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Informativa cookie" hidden>
+    <p>Usiamo solo strumenti tecnici, necessari al funzionamento del sito e del carrello. Nessuna profilazione. <a href="cookie-policy.html">Cookie Policy</a></p>
+    <button class="btn btn--sm" type="button">Ho capito</button>
+  </div>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
