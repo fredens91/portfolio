@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Area riservata — Impronte di Zampe nel Cuore ODV</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/img/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="area">
+  <header class="header">
+    <div class="wrap header__inner">
+      <a class="brand" href="index.html">
+        <img src="assets/img/logo.png" alt="" width="72" height="72">
+        <span>Impronte di Zampe<br>nel Cuore <small>ODV</small></span>
+      </a>
+      <a class="btn btn--ghost btn--sm" href="index.html">← Torna al sito</a>
+    </div>
+  </header>
+
+  <main class="section area__main">
+    <div class="wrap">
+      <form class="card login" id="login">
+        <h1>Area riservata</h1>
+        <p>Accedi con l'email usata nel modulo di adozione a distanza.</p>
+        <label class="field">E-mail<input name="email" type="email" required autocomplete="email" value="giulia.bianchi@email.it"></label>
+        <label class="field">Password<input name="password" type="password" required autocomplete="current-password" value="demo-password"></label>
+        <button class="btn" type="submit">Accedi</button>
+        <p class="hint">Demo: puoi usare l'email precompilata o quella inserita nel modulo del sito. Su WordPress l'account si crea alla prima iscrizione, con link per impostare la password.</p>
+        <p class="adopt__error" id="loginError" role="alert"></p>
+      </form>
+
+      <div id="dash" hidden>
+        <div class="area__top">
+          <div>
+            <p class="kicker">Ciao <span id="who"></span></p>
+            <h1>Le tue adozioni a distanza</h1>
+          </div>
+          <div class="area__actions">
+            <a class="btn btn--sm" href="index.html#adozione-distanza">+ Nuova adozione</a>
+            <button class="btn btn--ghost btn--sm" type="button" id="logout">Esci</button>
+          </div>
+        </div>
+        <ul class="facts facts--area" id="summary"></ul>
+        <div class="mine" id="mine"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/js/data.js"></script>
+  <script>
+    (() => {
+      const { db, save, esc, dog, totale, causale, MESI } = CANILE;
+      const login = document.getElementById('login');
+      const dash = document.getElementById('dash');
+      const mine = document.getElementById('mine');
+      const SESSION = 'canile-demo-user';
+      const get = () => { try { return sessionStorage.getItem(SESSION); } catch (e) { return null; } };
+      const set = (v) => { try { v ? sessionStorage.setItem(SESSION, v) : sessionStorage.removeItem(SESSION); } catch (e) { /* session not kept */ } };
+      let email = get();
+
+      const fromUrl = new URLSearchParams(location.search).get('email');
+      if (fromUrl) login.email.value = fromUrl;
+
+      const render = () => {
+        const own = db.iscritti.filter((x) => x.email === email);
+        const gifts = db.iscritti.filter((x) => x.regalo && x.regalo.toLowerCase() === email);
+        login.hidden = true;
+        dash.hidden = false;
+        const me = own[0];
+        document.getElementById('who').textContent = me ? `${me.nome} ${me.cognome}` : email;
+        const paid = own.filter((x) => x.pagamento === 'ricevuto');
+        document.getElementById('summary').innerHTML = `
+          <li><strong>${new Set(own.map((x) => x.cane)).size}</strong> ${new Set(own.map((x) => x.cane)).size === 1 ? 'cane sostenuto' : 'cani sostenuti'}</li>
+          <li><strong>${own.reduce((n, x) => n + x.mesi.length, 0)}</strong> mesi di adozione</li>
+          <li><strong>${paid.reduce((n, x) => n + totale(x), 0)} €</strong> donati, grazie! 💖</li>`;
+
+        const card = (x, gift) => {
+          const d = dog(x.cane);
+          return `
+          <article class="mine__item">
+            <img src="${esc(d.image)}" alt="${esc(d.name)}" width="160" height="160">
+            <div class="mine__body">
+              <header>
+                <h2>${esc(d.name)} <small>${x.anno}</small></h2>
+                ${gift ? `<span class="badge badge--purple">Regalo da ${esc(x.nome)}</span>`
+                  : `<span class="badge ${x.pagamento === 'ricevuto' ? 'badge--ok' : 'badge--wait'}">${x.pagamento === 'ricevuto' ? 'Pagamento ricevuto' : 'In attesa di pagamento'}</span>`}
+              </header>
+              <ol class="year">${MESI.map((m, i) => `<li class="${x.mesi.includes(i) ? 'on' : ''}" title="${m}">${m[0]}</li>`).join('')}</ol>
+              ${gift ? '' : `<p>${x.mesi.length} × ${db.quota} € = <strong>${totale(x)} €</strong> · iscrizione del ${new Date(x.data).toLocaleDateString('it-IT')}${x.regalo ? ` · regalo per ${esc(x.regalo)}` : ''}</p>`}
+              ${!gift && x.pagamento === 'attesa' ? `<p class="hint">Bonifico IBAN ${esc(db.texts.iban)} o PayPal ${esc(db.texts.distanza_paypal)} · causale “${esc(causale(x))}”</p>` : ''}
+              ${!gift && x.pagamento === 'ricevuto' ? (x.ricevuta
+                ? '<p class="hint">✔ Ricevuta per la detrazione richiesta: la riceverai via email.</p>'
+                : `<button class="btn btn--ghost btn--sm" type="button" data-receipt="${esc(x.id)}">Richiedi ricevuta per detrazione</button>`) : ''}
+            </div>
+          </article>`;
+        };
+        mine.innerHTML = own.length || gifts.length
+          ? own.map((x) => card(x, false)).join('') + gifts.map((x) => card(x, true)).join('')
+          : '<p class="card">Non ci sono ancora adozioni collegate a questa email. <a href="index.html#adozione-distanza">Adotta un cane a distanza</a>.</p>';
+      };
+
+      login.addEventListener('submit', (ev) => {
+        ev.preventDefault();
+        if (!login.checkValidity()) { document.getElementById('loginError').textContent = 'Inserisci email e password.'; return; }
+        email = login.email.value.trim().toLowerCase();
+        set(email);
+        render();
+      });
+      document.getElementById('logout').addEventListener('click', () => { set(null); location.href = 'area-riservata.html'; });
+      mine.addEventListener('click', (ev) => {
+        const id = ev.target.dataset.receipt;
+        if (!id) return;
+        db.iscritti.find((x) => x.id === id).ricevuta = true;
+        save();
+        render();
+      });
+
+      if (email && !fromUrl) render();
+    })();
+  </script>
+</body>
+</html>

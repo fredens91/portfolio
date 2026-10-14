@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Impronte di Zampe nel Cuore ODV — Rifugio per cani a Roncade</title>
+  <meta name="description" content="Rifugio per cani a Roncade (Treviso e Venezia). Trova un amico a quattro zampe e scopri come adottare un cane bisognoso.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/img/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <header class="header">
+    <div class="wrap header__inner">
+      <a class="brand" href="#top">
+        <img src="assets/img/logo.png" alt="" width="72" height="72">
+        <span>Impronte di Zampe<br>nel Cuore <small>ODV</small></span>
+      </a>
+      <a class="btn btn--ghost btn--sm" href="area-riservata.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+        Area riservata
+      </a>
+    </div>
+  </header>
+  <nav class="nav" aria-label="Principale">
+      <div class="wrap nav__inner">
+        <a href="#adozione-cani">Cani in adozione</a>
+        <a href="#chi-siamo">Chi siamo</a>
+        <a href="#dove-siamo">Dove siamo</a>
+        <a href="#diventa-volontario">Diventa volontario</a>
+        <a href="#dona-ora">Dona ora</a>
+        <a href="#adozione-distanza">Adozione a distanza</a>
+        <a href="#eventi">Eventi</a>
+        <a href="#contatti">Contatti</a>
+      </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero__inner">
+        <div class="hero__card">
+          <span class="kicker" data-t="hero_kicker"></span>
+          <h1 data-t="hero_title"></h1>
+          <p data-t="hero_text"></p>
+          <div class="hero__actions">
+            <a class="btn" href="#adozione-cani">Cani in adozione</a>
+            <a class="btn btn--purple" href="#adozione-distanza">Adotta a distanza</a>
+          </div>
+        </div>
+        <figure class="hero__photo">
+          <img src="assets/img/gruppo.jpg" alt="I volontari dell'associazione nel giardino del rifugio" width="1400" height="933">
+        </figure>
+      </div>
+      <ul class="wrap facts">
+        <li><strong>~30</strong> cani accuditi ogni giorno</li>
+        <li><strong>365</strong> giorni l'anno, festivi compresi</li>
+        <li><strong>10 €</strong> al mese per un'adozione a distanza</li>
+      </ul>
+    </section>
+
+    <section class="section" id="adozione-cani">
+      <div class="wrap">
+        <header class="head">
+          <h2 class="script">Cani in adozione</h2>
+          <p data-t="adozione_intro"></p>
+          <p class="head__info"><strong data-t="adozione_info"></strong></p>
+        </header>
+
+        <form class="filters" aria-label="Filtra i cani">
+          <label>Età
+            <select name="age"><option value="">Tutti</option><option value="cucciolo">Cucciolo</option><option value="adulto">Adulto</option><option value="anziano">Anziano</option></select>
+          </label>
+          <label>Sesso
+            <select name="gender"><option value="">Tutti</option><option value="M">Maschio</option><option value="F">Femmina</option></select>
+          </label>
+          <label>Taglia
+            <select name="size"><option value="">Tutte</option><option value="piccola">Piccola</option><option value="media contenuta">Media contenuta</option><option value="media">Media</option><option value="grande">Grande</option></select>
+          </label>
+        </form>
+
+        <p class="dogs__count" id="dogCount" aria-live="polite"></p>
+        <div class="dogs" id="dogList"></div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="chi-siamo">
+      <div class="wrap split">
+        <div>
+          <h2 class="script">Chi siamo</h2>
+          <p class="lead" data-t="chi_1"></p>
+          <p data-t="chi_2"></p>
+          <p data-t="chi_3"></p>
+        </div>
+        <img class="split__img" src="assets/img/gruppo2.jpg" alt="Volontari del rifugio insieme ai cani" width="1400" height="933" loading="lazy">
+      </div>
+    </section>
+
+    <section class="section" id="dove-siamo">
+      <div class="wrap cards cards--2">
+        <article class="card">
+          <h2 class="script">Dove siamo</h2>
+          <p data-t="dove"></p>
+          <a class="btn btn--sm" href="https://maps.app.goo.gl/vKHZLbvqR1uwTqbt9" target="_blank" rel="noopener">Visualizza su Google Maps</a>
+        </article>
+        <article class="card card--pink" id="diventa-volontario">
+          <h2 class="script">Diventa volontario</h2>
+          <p data-t="volontario"></p>
+          <p><strong data-t="volontario_contatto"></strong></p>
+        </article>
+        <article class="card card--wide">
+          <h3>Orari</h3>
+          <p data-t="orari"></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--white" id="dona-ora">
+      <div class="wrap">
+        <header class="head">
+          <h2 class="script">Dona ora</h2>
+          <p data-t="dona"></p>
+        </header>
+        <div class="cards cards--3">
+          <article class="card card--line"><h3>💳 Bonifico bancario</h3><p>Impronte di Zampe nel Cuore ODV<br>IBAN <code data-t="iban"></code><br>Causale: Donazione</p></article>
+          <article class="card card--line"><h3>🔗 PayPal</h3><p>Destinatario <strong data-t="paypal"></strong><br>Causale: Donazione</p></article>
+          <article class="card card--line"><h3>🖊️ 5x1000</h3><p>Codice fiscale<br><strong data-t="codice_fiscale"></strong></p></article>
+          <article class="card card--line"><h3>📦 Lista desideri</h3><p>Cibo, cucce e giochi direttamente al rifugio.</p><a href="https://www.amazon.it/hz/wishlist/ls/1OG85FJWOMXIN" target="_blank" rel="noopener">Apri la lista Amazon</a></article>
+          <article class="card card--line"><h3>🍽️ Mangime sospeso</h3><p>Dona cibo al rifugio tramite la piattaforma Feed-0.</p><a href="https://mangimesospeso.feed-0.it/canile/impronte-di-zampe-nel-cuore-odv/" target="_blank" rel="noopener">Dona su Feed-0</a></article>
+          <article class="card card--line"><h3>🎁 Box regalo solidali</h3><p data-t="box_regalo"></p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--paws" id="adozione-distanza">
+      <div class="wrap adopt">
+        <header class="adopt__head">
+          <h2 class="script">Adozione a distanza</h2>
+          <p data-t="distanza"></p>
+          <p class="adopt__note" data-t="distanza_note"></p>
+        </header>
+
+        <form class="adopt__form" id="adoptForm" novalidate>
+          <fieldset>
+            <legend><span>1</span> I tuoi dati</legend>
+            <div class="fields">
+              <label class="field">Nome *<input name="nome" required autocomplete="given-name"></label>
+              <label class="field">Cognome *<input name="cognome" required autocomplete="family-name"></label>
+              <label class="field field--full">E-mail *<input name="email" type="email" required autocomplete="email"></label>
+              <label class="field field--full"><span>Se l'adozione è un <strong>regalo</strong>, inserisci l'email del destinatario</span>
+                <input name="regalo" type="email" placeholder="facoltativo"></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><span>2</span> Chi vuoi adottare? *</legend>
+            <p class="hint">Sono i cagnoloni che sono con noi da più tempo e che non ricevono richieste, in attesa di una casa ❤️‍🩹</p>
+            <div class="pick" id="pickDog"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend><span>3</span> Per quali mesi? *</legend>
+            <p class="hint">Il costo è di <strong>10 € al mese</strong>: il pagamento dei mesi scelti si effettua in un'unica volta.</p>
+            <div class="months" id="pickMonths"></div>
+          </fieldset>
+
+          <label class="check"><input type="checkbox" name="privacy" required> Ho letto l'informativa privacy e acconsento al trattamento dei dati per la gestione dell'adozione.</label>
+
+          <div class="adopt__foot">
+            <p class="adopt__total">Totale <strong id="total">0 €</strong></p>
+            <button class="btn" type="submit">Invia l'adozione</button>
+          </div>
+          <p class="adopt__error" id="formError" role="alert"></p>
+        </form>
+
+        <div class="adopt__done" id="adoptDone" hidden tabindex="-1"></div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="eventi">
+      <div class="wrap split split--rev">
+        <div>
+          <h2 class="script">Eventi</h2>
+          <p data-t="eventi"></p>
+          <p>Seguici sui social per non perdere le prossime date.</p>
+          <ul class="social">
+            <li><a href="https://www.facebook.com/p/Impronte-di-Zampe-nel-Cuore-61568722306536/" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://www.instagram.com/impronte_di_zampe_nel_cuoreodv/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.tiktok.com/@improntedizampenelcuore" target="_blank" rel="noopener">TikTok</a></li>
+          </ul>
+        </div>
+        <img class="split__img" src="assets/img/lilly.jpg" alt="Lilly, una delle ospiti del rifugio" width="445" height="590" loading="lazy">
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contatti">
+    <div class="wrap footer__inner">
+      <div>
+        <p class="footer__title">Impronte di Zampe nel Cuore ODV</p>
+        <p>Sede operativa: <span data-t="dove"></span><br>Codice fiscale <span data-t="codice_fiscale"></span></p>
+      </div>
+      <div>
+        <p>Telefono: <span data-t="telefono"></span><br>Email: <span data-t="email"></span></p>
+        <p><a href="area-riservata.html">Area riservata</a> · <a href="wp-admin.html">Accesso staff</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
