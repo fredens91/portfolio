@@ -12,7 +12,7 @@ $line: #f1d3e1;
 $white: #fff;
 $black: #141014;
 
-$script: "Great Vibes", cursive;
+$script: "Playfair Display", Georgia, serif;
 $body: "Poppins", system-ui, sans-serif;
 $radius: 18px;
 $shadow: 0 10px 30px rgba(#7a2a4a, .1);
@@ -35,7 +35,7 @@ code { font: 500 .85em/1.4 $body; letter-spacing: .02em; word-break: break-all; 
 
 .wrap { max-width: 1180px; margin: 0 auto; padding: 0 16px; @include md { padding: 0 32px; } }
 
-.script { font: 400 clamp(2.6rem, 6vw, 3.8rem)/1 $script; color: $pink; }
+.script { font: italic 500 clamp(2rem, 4.6vw, 2.9rem)/1.15 $script; color: $pink; }
 
 .kicker { display: block; margin-bottom: 10px; font-weight: 500; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: $violet; }
 
@@ -61,20 +61,40 @@ code { font: 500 .85em/1.4 $body; letter-spacing: .02em; word-break: break-all; 
 .brand {
   display: flex; align-items: center; gap: 10px;
   color: $pink; text-decoration: none;
-  font: 400 1.5rem/1 $script;
+  font: italic 500 1.05rem/1.15 $script;
   img { width: 56px; height: 56px; @include md { width: 72px; height: 72px; } }
   small { font: 500 .7rem $body; letter-spacing: .1em; color: $muted; }
-  @include md { font-size: 1.9rem; }
+  @include md { font-size: 1.3rem; }
   &:hover { color: $pink-dark; }
 }
 .header .btn--sm { padding: 9px 14px; }
 .header .btn--sm:has(svg) { @media (max-width: 420px) { font-size: 0; gap: 0; svg { width: 20px; height: 20px; } } }
 
 .nav { position: sticky; top: 0; z-index: 20; background: $black; }
+.nav__bar { @include lg { display: none; } }
+.nav__toggle {
+  display: flex; align-items: center; gap: 12px; width: 100%; padding: 14px 0; border: 0; background: none;
+  color: $white; font: 500 .95rem/1 $body; cursor: pointer;
+  &:focus-visible { outline: 2px solid #c99be6; outline-offset: 2px; }
+}
+.nav__icon {
+  display: grid; gap: 5px; width: 22px;
+  span { height: 2px; border-radius: 2px; background: currentColor; transition: transform .25s, opacity .25s; }
+  [aria-expanded="true"] & span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  [aria-expanded="true"] & span:nth-child(2) { opacity: 0; }
+  [aria-expanded="true"] & span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
 .nav__inner {
-  display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none;
-  @include lg { justify-content: center; }
-  a { flex: none; padding: 14px 12px; color: $white; text-decoration: none; font-size: .9rem; &:hover { color: #c99be6; } }
+  display: none; position: absolute; inset: 100% 0 auto; flex-direction: column; padding-bottom: 12px; border-top: 1px solid rgba($white, .12); background: $black; box-shadow: 0 16px 30px rgba($black, .25);
+  max-height: calc(100vh - 50px); overflow-y: auto;
+  &.is-open { display: flex; }
+  @include lg { display: flex; position: static; flex-direction: row; justify-content: center; gap: 4px; padding-bottom: 0; border: 0; max-height: none; box-shadow: none; }
+  a {
+    flex: none; padding: 13px 0; border-bottom: 1px solid rgba($white, .08); color: $white; text-decoration: none; font-size: 1rem;
+    &:last-child { border-bottom: 0; }
+    &:hover { color: #c99be6; }
+    @include lg { padding: 14px 12px; border: 0; font-size: .9rem; }
+  }
 }
 
 // ---------- hero ----------
@@ -83,7 +103,7 @@ code { font: 500 .85em/1.4 $body; letter-spacing: .02em; word-break: break-all; 
 .hero__card {
   padding: 28px 24px; border-radius: $radius; background: rgba($white, .95); box-shadow: $shadow;
   @include md { padding: 44px; }
-  h1 { font: 400 clamp(2.8rem, 7vw, 4.6rem)/1 $script; color: $pink; }
+  h1 { font: italic 500 clamp(2.1rem, 5vw, 3.4rem)/1.1 $script; color: $pink; }
   p { font-size: 1.05rem; }
 }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
@@ -118,7 +138,7 @@ code { font: 500 .85em/1.4 $body; letter-spacing: .02em; word-break: break-all; 
 }
 .card {
   padding: 26px; border-radius: $radius; background: $white; box-shadow: $shadow;
-  .script { font-size: 2.6rem; }
+  .script { font-size: 2rem; }
   &--pink { background: $pink; color: $white; .script { color: $white; } }
   &--wide { grid-column: 1 / -1; }
   &--line { box-shadow: none; border: 2px solid $line; h3 { color: $pink; } }
@@ -145,7 +165,7 @@ select, input, textarea { font: 400 1rem/1.4 $body; color: $ink; }
   &__img { aspect-ratio: 4 / 5; overflow: hidden; img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; } }
   &:hover img { transform: scale(1.04); }
   &__body { display: flex; flex-direction: column; flex: 1; padding: 18px 20px 22px; }
-  h3 { font: 400 2.2rem/1 $script; color: $pink; }
+  h3 { font: italic 500 1.6rem/1.15 $script; color: $pink; }
   details { margin-top: 4px; font-size: .9rem; color: $muted; }
   summary { cursor: pointer; font-weight: 500; color: $purple; }
   details p { margin: 8px 0 0; }
@@ -165,7 +185,7 @@ select, input, textarea { font: 400 1rem/1.4 $body; color: $ink; }
 .adopt__note { padding: 14px 16px; border-left: 4px solid $coral; border-radius: 0 12px 12px 0; background: $blush-2; font-size: .9rem; }
 
 .adopt__form, .adopt__done { padding: 24px 18px; border-radius: $radius; background: $white; box-shadow: $shadow; @include md { padding: 34px; } }
-.adopt__done { outline: 0; text-align: center; h3 { font: 400 2.4rem/1.1 $script; color: $pink; } }
+.adopt__done { outline: 0; text-align: center; h3 { font: italic 500 1.8rem/1.2 $script; color: $pink; } }
 .adopt__hearts { font-size: 1.6rem; margin: 0; }
 
 fieldset { margin: 0 0 26px; padding: 0; border: 0; min-width: 0; }
@@ -184,7 +204,7 @@ legend {
   input { position: absolute; opacity: 0; }
   img { flex: none; width: 72px; height: 72px; border-radius: 12px; object-fit: cover; }
   strong, small, em { display: block; }
-  strong { font: 400 1.8rem/1 $script; color: $pink; }
+  strong { font: italic 500 1.3rem/1.15 $script; color: $pink; }
   small { font-size: .75rem; color: $muted; }
   em { margin-top: 4px; font-size: .8rem; line-height: 1.45; }
   &:hover { border-color: $violet; }
@@ -223,7 +243,7 @@ legend {
   padding: 40px 0; background: $coral; color: $white; font-size: .9rem;
   a { color: $white; }
   &__inner { display: grid; gap: 10px; @include md { grid-template-columns: 1fr 1fr; } }
-  &__title { font: 400 2rem/1 $script; }
+  &__title { font: italic 500 1.5rem/1.2 $script; }
 }
 
 // ---------- user area: neutral, minimal ----------

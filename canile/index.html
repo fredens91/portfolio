@@ -9,7 +9,7 @@
   <link rel="icon" href="assets/img/logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
@@ -26,7 +26,13 @@
     </div>
   </header>
   <nav class="nav" aria-label="Principale">
-      <div class="wrap nav__inner">
+      <div class="wrap nav__bar">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu">
+          <span class="nav__icon" aria-hidden="true"><span></span><span></span><span></span></span>
+          Menu
+        </button>
+      </div>
+      <div class="wrap nav__inner" id="menu">
         <a href="#adozione-cani">Cani in adozione</a>
         <a href="#chi-siamo">Chi siamo</a>
         <a href="#dove-siamo">Dove siamo</a>

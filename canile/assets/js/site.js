@@ -2,6 +2,14 @@
   const { db, save, esc, dog, totale, causale, applyTexts, MESI } = CANILE;
   applyTexts();
 
+  // ---------- burger menu (tablet / mobile) ----------
+  const toggle = document.querySelector('.nav__toggle');
+  const menu = document.getElementById('menu');
+  const setMenu = (open) => { toggle.setAttribute('aria-expanded', String(open)); menu.classList.toggle('is-open', open); };
+  toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
+  menu.addEventListener('click', (ev) => { if (ev.target.tagName === 'A') setMenu(false); });
+  document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && menu.classList.contains('is-open')) { setMenu(false); toggle.focus(); } });
+
   // ---------- dogs list ----------
   const list = document.getElementById('dogList');
   const count = document.getElementById('dogCount');
