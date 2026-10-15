@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>B RENT — Autonoleggio</title>
+  <meta name="description" content="B RENT, noleggio auto sportive e premium a breve e lungo termine.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <!-- shortcut: client-side gate only, the files stay public in the repo; real protection needs server auth -->
+  <script>
+    try { if (sessionStorage.getItem('brent-ok') !== '1') document.documentElement.classList.add('locked'); }
+    catch (e) { document.documentElement.classList.add('locked'); }
+  </script>
+  <style>
+    html.locked body > :not(.gate) { display: none !important; }
+    html:not(.locked) .gate { display: none; }
+    .gate { display: grid; place-items: center; min-height: 100vh; min-height: 100svh; padding: 16px; background: #050607; }
+    .gate form { display: grid; gap: 14px; width: min(100%, 360px); }
+    .gate .logo { margin-bottom: 8px; }
+    .gate label { display: grid; gap: 8px; font: 600 .8rem/1 "Chakra Petch", sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #9aa3b2; }
+    .gate input { padding: 14px 16px; border: 1px solid rgba(255, 255, 255, .2); background: #0e1013; color: #fff; font: 400 1rem "Barlow", sans-serif; }
+    .gate input:focus { outline: 0; border-color: #19e27a; }
+    .gate .btn { justify-content: center; }
+    .gate p { margin: 0; min-height: 1.5em; color: #ff6b6b; font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <main class="gate">
+    <form id="gate">
+      <span class="logo">B<span>/</span>RENT</span>
+      <label>Password<input type="password" name="pw" autocomplete="current-password" required autofocus></label>
+      <button class="btn btn--green" type="submit">Entra</button>
+      <p role="alert"></p>
+    </form>
+  </main>
+  <script>
+    document.getElementById('gate').addEventListener('submit', async (ev) => {
+      ev.preventDefault();
+      const f = ev.target;
+      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(f.pw.value));
+      const hex = [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
+      if (hex !== 'c00c992f064d60f733c3f7ca659e11162de956353cb0ec5f1c6cedec04faaff8') {
+        f.querySelector('p').textContent = 'Password errata.';
+        f.pw.select();
+        return;
+      }
+      try { sessionStorage.setItem('brent-ok', '1'); } catch (e) { /* unlocked for this page view only */ }
+      document.documentElement.classList.remove('locked');
+    });
+  </script>
+  <header class="header">
+    <div class="header__inner">
+      <a class="logo" href="#top">B<span>/</span>RENT</a>
+      <button class="header__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Apri menu"><span></span><span></span><span></span></button>
+      <nav class="header__nav" id="menu" aria-label="Principale">
+        <a href="#flotta">Flotta</a>
+        <a href="#servizi">Servizi</a>
+        <a href="#come-funziona">Come funziona</a>
+        <a href="#contatti">Contatti</a>
+        <a class="btn btn--green btn--sm" href="#prenota">Prenota</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero__content">
+        <span class="kicker">Noleggio auto sportive e premium</span>
+        <h1>Prendi le chiavi.<br><em>Il resto è strada.</em></h1>
+        <p>Sportive, SUV e berline di alta gamma, consegnate dove vuoi tu. Nuove, sanificate, pronte a partire.</p>
+        <div class="hero__actions">
+          <a class="btn btn--green" href="#flotta">Scopri la flotta</a>
+          <a class="btn btn--outline" href="#contatti">WhatsApp</a>
+        </div>
+      </div>
+
+      <form class="booking" id="prenota" aria-label="Richiesta di prenotazione">
+        <label class="booking__field">
+          <span>Ritiro</span>
+          <select><option>In sede</option><option>Consegna a domicilio</option><option>Aeroporto</option></select>
+        </label>
+        <label class="booking__field">
+          <span>Dal</span>
+          <input type="date">
+        </label>
+        <label class="booking__field">
+          <span>Al</span>
+          <input type="date">
+        </label>
+        <label class="booking__field">
+          <span>Categoria</span>
+          <select><option>Tutte</option><option>Supercar</option><option>Sportive</option><option>SUV &amp; Station</option></select>
+        </label>
+        <button class="btn btn--green booking__submit" type="button">Verifica disponibilità</button>
+      </form>
+    </section>
+
+    <section class="brands" aria-label="Marchi in flotta">
+      <ul class="brands__track">
+        <li>Lamborghini</li><li>Porsche</li><li>Audi Sport</li><li>Mercedes-AMG</li><li>BMW M</li><li>Ferrari</li><li>Maserati</li><li>Range Rover</li>
+      </ul>
+    </section>
+
+    <section class="section" id="servizi">
+      <div class="wrap">
+        <header class="head">
+          <span class="kicker">Perché B RENT</span>
+          <h2>Zero pensieri.<br>Solo guida.</h2>
+        </header>
+        <div class="grid grid--4">
+          <article class="feature">
+            <span class="feature__num">01</span>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M16 9v7l5 3"/></svg>
+            <h3>Assistenza h24</h3>
+            <p>Un numero dedicato, sempre attivo, per qualsiasi imprevisto durante il noleggio.</p>
+          </article>
+          <article class="feature">
+            <span class="feature__num">02</span>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 22V12h15l5 5h4v5"/><circle cx="10" cy="23" r="3"/><circle cx="23" cy="23" r="3"/></svg>
+            <h3>Consegna e ritiro</h3>
+            <p>Portiamo l'auto a casa, in hotel o in aeroporto e la ritiriamo a fine noleggio.</p>
+          </article>
+          <article class="feature">
+            <span class="feature__num">03</span>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l10 4v8c0 7-4.5 11.5-10 14C10.5 26.5 6 22 6 15V7z"/><path d="M11 16l4 4 7-8"/></svg>
+            <h3>Auto nuove</h3>
+            <p>Flotta sotto i due anni di vita, controllata e sanificata prima di ogni consegna.</p>
+          </article>
+          <article class="feature">
+            <span class="feature__num">04</span>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 5h22v22H5z"/><path d="M10 12h12M10 17h12M10 22h7"/></svg>
+            <h3>Tariffe chiare</h3>
+            <p>Prezzo finale prima di firmare: chilometri, assicurazione e deposito senza sorprese.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--navy" id="flotta">
+      <div class="wrap">
+        <header class="head head--row">
+          <div>
+            <span class="kicker">La flotta</span>
+            <h2>Scegli il tuo motore</h2>
+          </div>
+          <a class="btn btn--outline" href="#prenota">Tutte le auto</a>
+        </header>
+        <div class="grid grid--3">
+          <article class="car">
+            <div class="car__img"><img src="assets/img/huracan.jpg" alt="Lamborghini Huracán gialla parcheggiata" width="1400" height="934" loading="lazy"><span class="car__tag">Supercar</span></div>
+            <div class="car__body">
+              <h3>Lamborghini Huracán</h3>
+              <ul class="car__specs"><li><strong>610</strong>CV</li><li><strong>3,2</strong>s 0-100</li><li><strong>AWD</strong>trazione</li></ul>
+              <div class="car__foot"><p class="car__price">da <strong>€ 1.290</strong>/giorno</p><a class="car__link" href="#prenota">Prenota</a></div>
+            </div>
+          </article>
+          <article class="car">
+            <div class="car__img"><img src="assets/img/911-gt3.jpg" alt="Porsche 911 GT3 bianca su strada di montagna innevata" width="1400" height="934" loading="lazy"><span class="car__tag">Sportiva</span></div>
+            <div class="car__body">
+              <h3>Porsche 911 GT3</h3>
+              <ul class="car__specs"><li><strong>510</strong>CV</li><li><strong>3,4</strong>s 0-100</li><li><strong>PDK</strong>cambio</li></ul>
+              <div class="car__foot"><p class="car__price">da <strong>€ 890</strong>/giorno</p><a class="car__link" href="#prenota">Prenota</a></div>
+            </div>
+          </article>
+          <article class="car">
+            <div class="car__img"><img src="assets/img/r8.jpg" alt="Audi R8 grigia su strada al tramonto" width="1400" height="934" loading="lazy"><span class="car__tag">Supercar</span></div>
+            <div class="car__body">
+              <h3>Audi R8 V10</h3>
+              <ul class="car__specs"><li><strong>620</strong>CV</li><li><strong>3,1</strong>s 0-100</li><li><strong>V10</strong>motore</li></ul>
+              <div class="car__foot"><p class="car__price">da <strong>€ 990</strong>/giorno</p><a class="car__link" href="#prenota">Prenota</a></div>
+            </div>
+          </article>
+          <article class="car">
+            <div class="car__img"><img src="assets/img/amg-gt.jpg" alt="Mercedes-AMG GT grigia con cerchi neri" width="1400" height="934" loading="lazy"><span class="car__tag">Sportiva</span></div>
+            <div class="car__body">
+              <h3>Mercedes-AMG GT R</h3>
+              <ul class="car__specs"><li><strong>585</strong>CV</li><li><strong>3,6</strong>s 0-100</li><li><strong>V8</strong>biturbo</li></ul>
+              <div class="car__foot"><p class="car__price">da <strong>€ 790</strong>/giorno</p><a class="car__link" href="#prenota">Prenota</a></div>
+            </div>
+          </article>
+          <article class="car">
+            <div class="car__img"><img src="assets/img/rs6.jpg" alt="Audi RS6 Avant nera vista frontale" width="1400" height="2097" loading="lazy"><span class="car__tag">Station</span></div>
+            <div class="car__body">
+              <h3>Audi RS6 Avant</h3>
+              <ul class="car__specs"><li><strong>600</strong>CV</li><li><strong>3,6</strong>s 0-100</li><li><strong>5</strong>posti</li></ul>
+              <div class="car__foot"><p class="car__price">da <strong>€ 490</strong>/giorno</p><a class="car__link" href="#prenota">Prenota</a></div>
+            </div>
+          </article>
+          <article class="car">
+            <div class="car__img"><img src="assets/img/m5.jpg" alt="BMW M5 bianca in movimento su strada" width="1400" height="934" loading="lazy"><span class="car__tag">Berlina</span></div>
+            <div class="car__body">
+              <h3>BMW M5 Competition</h3>
+              <ul class="car__specs"><li><strong>625</strong>CV</li><li><strong>3,3</strong>s 0-100</li><li><strong>5</strong>posti</li></ul>
+              <div class="car__foot"><p class="car__price">da <strong>€ 450</strong>/giorno</p><a class="car__link" href="#prenota">Prenota</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Numeri">
+      <div class="wrap stats__grid">
+        <div class="stat"><strong>40+</strong><span>auto in flotta</span></div>
+        <div class="stat"><strong>24/7</strong><span>garage e assistenza</span></div>
+        <div class="stat"><strong>&lt;2</strong><span>anni di età media</span></div>
+        <div class="stat"><strong>4.9</strong><span>valutazione clienti</span></div>
+      </div>
+    </section>
+
+    <section class="section split" id="come-funziona">
+      <div class="wrap split__inner">
+        <img class="split__img" src="assets/img/guida.jpg" alt="Conducente al volante al tramonto" width="1400" height="934" loading="lazy">
+        <div>
+          <header class="head">
+            <span class="kicker">Come funziona</span>
+            <h2>Dalla richiesta alla strada in tre step</h2>
+          </header>
+          <ol class="steps">
+            <li><strong>Scegli</strong><span>Indica auto, date e luogo di ritiro dal modulo o su WhatsApp.</span></li>
+            <li><strong>Conferma</strong><span>Ricevi il preventivo finale in giornata e blocchi l'auto con il deposito.</span></li>
+            <li><strong>Guida</strong><span>Consegna con breve briefing sul veicolo. A fine noleggio pensiamo a tutto noi.</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap cta__inner">
+        <h2>Il weekend perfetto<br>ha <em>quattro ruote</em>.</h2>
+        <a class="btn btn--green" href="#prenota">Richiedi un preventivo</a>
+      </div>
+    </section>
+
+    <section class="section" id="contatti">
+      <div class="wrap contact">
+        <div>
+          <span class="kicker">Contatti</span>
+          <h2>Passa in garage</h2>
+          <ul class="contact__list">
+            <li><span>Indirizzo</span>Via dei Motori 12, 00100 Città</li>
+            <li><span>Telefono</span>+39 000 000 0000</li>
+            <li><span>WhatsApp</span>+39 000 000 0000</li>
+            <li><span>Email</span>info@brent.it</li>
+          </ul>
+        </div>
+        <div class="hours">
+          <h3>Orari</h3>
+          <dl>
+            <div><dt>Garage noleggio</dt><dd>H24, 365 giorni</dd></div>
+            <div><dt>Ufficio lun–ven</dt><dd>9:00–13:00 · 14:30–19:00</dd></div>
+            <div><dt>Sabato</dt><dd>9:00–13:00</dd></div>
+            <div><dt>Domenica</dt><dd>Chiuso</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <span class="logo">B<span>/</span>RENT</span>
+      <ul><li>Termini e condizioni</li><li>Privacy policy</li><li>Cookie policy</li></ul>
+      <p>&copy; 2026 B RENT S.r.l.s. &middot; P.IVA 00000000000</p>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const t = document.querySelector('.header__toggle');
+      const m = document.getElementById('menu');
+      t.addEventListener('click', () => {
+        const open = t.getAttribute('aria-expanded') === 'true';
+        t.setAttribute('aria-expanded', String(!open));
+        m.classList.toggle('is-open', !open);
+      });
+      m.addEventListener('click', (e) => { if (e.target.tagName === 'A') { t.setAttribute('aria-expanded', 'false'); m.classList.remove('is-open'); } });
+    })();
+  </script>
+</body>
+</html>
